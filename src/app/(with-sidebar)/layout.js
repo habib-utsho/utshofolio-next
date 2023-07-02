@@ -5,7 +5,7 @@ import { FaHome, FaServicestack, FaUser } from "react-icons/fa";
 const layout = ({ children }) => {
     return (
         <div className='min-h-screen max-w-7xl mx-auto items-center flex'>
-            <div className=' h-[95vh] w-full bg-[#222831] overflow-y-scroll p-6'>
+            <div className=' h-[95vh] w-full bg-[#222831] overflow-y-scroll'>
                 {children}
             </div>
 
