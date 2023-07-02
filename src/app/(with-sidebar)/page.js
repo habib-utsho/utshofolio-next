@@ -5,7 +5,7 @@ const page = () => {
     return (
         <div className='h-screen flex flex-col items-center justify-center'>
             <div className='text-white text-center space-y-5'>
-                <h2 className='my-title text-[#E84545]'>Ahashan Habib Utsho</h2>
+                <h2 className='my-title my-clr-one'>Ahashan Habib Utsho</h2>
                 <h3> Full stack web developer </h3>
                 <p>Sometimes five Imprimaturs are seen together dialogue-wise in the piazza of one title-page, complimenting and ducking each to other with their shaven reverences, whether the author, who stands by in perplexity at the foot of his epistle, shall to the press or to the sponge.</p>
                 <CommonBtnOne>Download resume</CommonBtnOne>

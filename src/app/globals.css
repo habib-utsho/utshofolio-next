@@ -84,3 +84,14 @@
   @apply font-bold text-2xl lg:text-4xl
 }
 
+.my-subtitle{
+  @apply font-semibold text-lg md:text-2xl
+}
+
+/* common color  */
+.my-clr-one{
+  color: #E84545;
+}
+.my-clr-one-bg{
+  background-color: #E84545;
+}
