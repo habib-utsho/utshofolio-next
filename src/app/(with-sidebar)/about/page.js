@@ -31,7 +31,7 @@ const AboutPage = () => {
                 </div>
 
                 {/* Technology */}
-                <div className='bg-[#000000f4] shadow-md shadow-[#000000f4] p-6 space-y-8'>
+                <div className='bg-[#000000f4] shadow-md shadow-[#000000f4] p-6 space-y-8 my-10'>
 
                     <div className='space-y-3'>
                         <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Frontend Development</h2>
