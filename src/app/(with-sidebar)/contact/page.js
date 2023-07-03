@@ -18,15 +18,15 @@ const ContactPage = () => {
             <h2 className='my-title my-clr-one'>Let's craft something innovative together!</h2>
 
             <div className='my-10 flex gap-5'>
-                <div className='flex-1 space-y-4 text-center p-5 py-10 rounded border border-[#E84545] hover:bg-[#E84545]  transition duration-500'>
+                <div className='flex-1 space-y-4 text-center p-5 py-10 rounded border border-[#E84545] bg-[#081229] hover:bg-[#E84545]  transition duration-500'>
                     <FaSearchLocation className='mx-auto text-2xl'></FaSearchLocation>
                     <p>Shanti Niketan, Rangpur</p>
                 </div>
-                <div className='flex-1 space-y-4 text-center p-5 py-10 rounded border border-[#E84545] hover:bg-[#E84545] transition duration-500'>
+                <div className='flex-1 space-y-4 text-center p-5 py-10 rounded border border-[#E84545] bg-[#081229] hover:bg-[#E84545]  transition duration-500'>
                     <FaPhone className='mx-auto text-2xl'></FaPhone>
                     <p>+880170678-5160</p>
                 </div>
-                <div className='flex-1 space-y-4 text-center p-5 py-10 rounded border border-[#E84545] hover:bg-[#E84545] transition duration-500'>
+                <div className='flex-1 space-y-4 text-center p-5 py-10 rounded border border-[#E84545] bg-[#081229] hover:bg-[#E84545]  transition duration-500'>
                     <FaMailBulk className='mx-auto text-2xl'></FaMailBulk>
                     <p>utsho926@gmail.com</p>
                 </div>
