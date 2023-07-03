@@ -1,6 +1,6 @@
 import NavLink from '@/Components/HelpingCompo/NavLink';
 import React from 'react';
-import { FaHome, FaProjectDiagram, FaServicestack, FaUser } from "react-icons/fa";
+import { FaFax, FaHome, FaProjectDiagram, FaServicestack, FaUser, FaVoicemail } from "react-icons/fa";
 
 const layout = ({ children }) => {
     return (
@@ -15,6 +15,7 @@ const layout = ({ children }) => {
                     <li><NavLink href={'/about'}><FaUser></FaUser></NavLink></li>
                     <li><NavLink href={'/services'}><FaServicestack></FaServicestack></NavLink></li>
                     <li><NavLink href={'/projects'}><FaProjectDiagram></FaProjectDiagram></NavLink></li>
+                    <li><NavLink href={'/contact'}><FaFax></FaFax> </NavLink></li>
                 </ul>
 
         </div>

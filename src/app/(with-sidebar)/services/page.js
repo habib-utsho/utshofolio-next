@@ -1,4 +1,3 @@
-import CommonBtnOne from '@/Components/HelpingCompo/CommonBtnOne';
 import React from 'react';
 import { FaAccusoft, FaAdjust, FaFunnelDollar, FaWeebly } from 'react-icons/fa';
 
@@ -34,15 +33,15 @@ const ServicesPage = () => {
                     </ul>
                 </div>
 
-                <CommonBtnOne>Contact with me</CommonBtnOne>
+                <button className='my-btn-one'>Contact with me</button>
 
             </div>
 
 
 
-            <div className='col-span-8 space-y-5'>
+            <div className='col-span-8 space-y-5 flex flex-col justify-center'>
 
-                <div className='p-5 flex items-center bg-[#000000f4]'>
+                <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaWeebly></FaWeebly> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Web development</h2>
@@ -50,7 +49,7 @@ const ServicesPage = () => {
                     </div>
                 </div>
 
-                <div className='p-5 flex items-center bg-[#000000f4]'>
+                <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaAccusoft></FaAccusoft> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Design strategy</h2>
@@ -58,7 +57,7 @@ const ServicesPage = () => {
                     </div>
                 </div>
 
-                <div className='p-5 flex items-center bg-[#000000f4]'>
+                <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaAccusoft></FaAccusoft> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Frontend Development</h2>
@@ -66,7 +65,7 @@ const ServicesPage = () => {
                     </div>
                 </div>
 
-                <div className='p-5 flex items-center bg-[#000000f4]'>
+                <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaAdjust></FaAdjust> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Performance Optimization</h2>
@@ -74,7 +73,7 @@ const ServicesPage = () => {
                     </div>
                 </div>
 
-                <div className='p-5 flex items-center bg-[#000000f4]'>
+                <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaFunnelDollar></FaFunnelDollar> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Fullstack Development</h2>
