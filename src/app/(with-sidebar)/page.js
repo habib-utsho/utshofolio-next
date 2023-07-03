@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaDownload } from 'react-icons/fa';
 
 const page = () => {
     return (
@@ -7,7 +8,7 @@ const page = () => {
                 <h2 className='my-title my-clr-one'>Ahashan Habib Utsho</h2>
                 <h3> Full stack web developer </h3>
                 <p>Sometimes five Imprimaturs are seen together dialogue-wise in the piazza of one title-page, complimenting and ducking each to other with their shaven reverences, whether the author, who stands by in perplexity at the foot of his epistle, shall to the press or to the sponge.</p>
-                <button className='my-btn-one'>Download resume</button>
+                <button className='my-btn-one'>Download resume <FaDownload></FaDownload></button>
             </div>
 
             <div className='grid grid-cols-2 md:grid-cols-4 bg-gradient-to-r from-red-300 to-red-500 mt-10 text-center w-full'>
