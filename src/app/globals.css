@@ -60,7 +60,6 @@
 }
 
 
-
 /* Hide the scrollbar for webkit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
   width: 0.5em; /* Adjust the width as needed */
