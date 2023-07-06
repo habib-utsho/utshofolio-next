@@ -70,7 +70,7 @@ const ProjectsPage = () => {
                             return <TabPanel key={ind}>
                                 {tabPanel === 'All' ? projects.map((p, ind) => {
                                     const { projectName, liveLink, projectImg, projectLogo, projectOverview, tools } = p || {}
-                                    return <div key={ind} className='my-8 border border-black p-5'>
+                                    return <div key={ind} className='my-8 shadow-inner shadow-slate-600 p-5'>
                                         <div className='flex gap-5'>
                                             <div className='w-4/12 flex items-center justify-center'>
                                                 <figure className='w-full h-64 relative'>
@@ -86,11 +86,11 @@ const ProjectsPage = () => {
                                                     <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
                                                     <h2>{projectName}</h2>
                                                 </div>
-                                                <p>{projectOverview}</p>
+                                                <p className='text-gray-300'>{projectOverview}</p>
                                                 <div>
-                                                    <h3 className='my-subtitle text-emerald-500'>Technologies</h3>
-                                                    <div className='my-5 flex gap-2 flex-wrap'>
-                                                        {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-slate-500 bg-opacity-50 rounded'>{tool}</span>)}
+                                                    <h3 className='my-subtitle text-green-500'>Technologies</h3>
+                                                    <div className='my-2 flex gap-2 flex-wrap'>
+                                                        {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
                                                     </div>
                                                 </div>
                                                 <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
@@ -100,7 +100,7 @@ const ProjectsPage = () => {
                                 })
                                     : projects.filter(project => project.category === tabPanel).map((p, ind) => {
                                         const { projectName, liveLink, projectImg, projectLogo, projectOverview, tools } = p || {}
-                                        return <div key={ind} className='my-8 border border-black p-5'>
+                                        return <div key={ind} className='my-8 shadow-inner shadow-slate-600 p-5'>
                                             <div className='flex gap-5'>
                                                 <div className='w-4/12 flex items-center justify-center'>
                                                     <figure className='w-full h-64 relative'>
@@ -111,18 +111,20 @@ const ProjectsPage = () => {
                                                         />
                                                     </figure>
                                                 </div>
-                                                <div className='flex-1'>
-                                                    <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
-                                                    <h2>{projectName}</h2>
-                                                    <p>{projectOverview}</p>
+                                                <div className='flex-1 space-y-4'>
+                                                    <div className='flex gap-2 items-center'>
+                                                        <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
+                                                        <h2>{projectName}</h2>
+                                                    </div>
+                                                    <p className='text-gray-300'>{projectOverview}</p>
                                                     <div>
-                                                        <h3 className='my-subtitle text-emerald-500'>Technologies</h3>
-                                                        <div className='my-5 flex gap-2 flex-wrap'>
-                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-slate-500 bg-opacity-50 rounded'>{tool}</span>)}
+                                                        <h3 className='my-subtitle text-green-500'>Technologies</h3>
+                                                        <div className='my-2 flex gap-2 flex-wrap'>
+                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
                                                         </div>
                                                     </div>
+                                                    <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
                                                 </div>
-                                                <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
                                             </div>
                                         </div>
                                     })}

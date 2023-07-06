@@ -38,7 +38,6 @@ const ServicesPage = () => {
             </div>
 
 
-
             <div className='col-span-8 space-y-5 flex flex-col justify-center'>
 
                 <div className='p-5 flex items-center bg-[#081229]'>
