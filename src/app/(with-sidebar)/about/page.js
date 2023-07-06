@@ -108,6 +108,15 @@ const AboutPage = () => {
                 {/* Course and experience */}
                 <div>
                     <h2 className='my-title relative pb-3'>Courses and experiences <span className='block absolute top-full left-0 h-1 w-full bg-gradient-to-tr from-red-500 to-blue-500'></span></h2>
+                    
+                    {/* PH */}
+                    <div className='flex items-center justify-between gap-8 !my-10'>
+                        <div className='space-y-3'>
+                            <h2 className='my-subtitle'>Programming Hero</h2>
+                            <p>Full stack web development</p>
+                        </div>
+                        <p className='text-slate-400'>01 Jan, 2023 - 17 Jun, 2023</p>
+                    </div>
 
                     {/* European IT */}
                     <div className='flex items-center justify-between gap-8 !my-10'>
@@ -116,15 +125,6 @@ const AboutPage = () => {
                             <p>Industrial attachment with React</p>
                         </div>
                         <p className='text-slate-400'>01 Oct, 2022 - 30 Dec, 2022</p>
-                    </div>
-
-                    {/* PH */}
-                    <div className='flex items-center justify-between gap-8 !my-10'>
-                        <div className='space-y-3'>
-                            <h2 className='my-subtitle'>Programming Hero</h2>
-                            <p>Full stack web development</p>
-                        </div>
-                        <p className='text-slate-400'>01 Jan, 2023 - 17 Jun, 2023</p>
                     </div>
 
                 </div>

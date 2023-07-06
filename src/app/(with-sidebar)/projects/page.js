@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
@@ -71,20 +72,28 @@ const ProjectsPage = () => {
                                     const { projectName, liveLink, projectImg, projectLogo, projectOverview, tools } = p || {}
                                     return <div key={ind} className='my-8 border border-black p-5'>
                                         <div className='flex gap-5'>
-                                            <figure className='w-4/12 relative'>
-                                                <Image
-                                                    // width={full} height={full}
-                                                    fill
-                                                    src={projectImg}
-                                                    alt={projectName}
-                                                />
-                                                {/* <img src={projectImg} alt="" /> */}
-                                            </figure>
-                                            <div className='flex-1'>
-                                                <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
-                                                <h2>{projectName}</h2>
+                                            <div className='w-4/12 flex items-center justify-center'>
+                                                <figure className='w-full h-64 relative'>
+                                                    <Image
+                                                        fill
+                                                        src={projectImg}
+                                                        alt={projectName}
+                                                    />
+                                                </figure>
+                                            </div>
+                                            <div className='flex-1 space-y-4'>
+                                                <div className='flex gap-2 items-center'>
+                                                    <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
+                                                    <h2>{projectName}</h2>
+                                                </div>
                                                 <p>{projectOverview}</p>
-                                                {tools.map((tool, ind) => <span key={ind} className='btn btn-ghost'>{tool}</span>)}
+                                                <div>
+                                                    <h3 className='my-subtitle text-emerald-500'>Technologies</h3>
+                                                    <div className='my-5 flex gap-2 flex-wrap'>
+                                                        {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-slate-500 bg-opacity-50 rounded'>{tool}</span>)}
+                                                    </div>
+                                                </div>
+                                                <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
                                             </div>
                                         </div>
                                     </div>
@@ -93,23 +102,27 @@ const ProjectsPage = () => {
                                         const { projectName, liveLink, projectImg, projectLogo, projectOverview, tools } = p || {}
                                         return <div key={ind} className='my-8 border border-black p-5'>
                                             <div className='flex gap-5'>
-                                                <figure className='w-4/12 relative'>
-                                                    <Image
-                                                        // width={full} height={full}
-                                                        fill
-                                                        src={projectImg}
-                                                        alt={projectName}
-                                                    />
-                                                    {/* <img src={projectImg} alt="" /> */}
-                                                </figure>
+                                                <div className='w-4/12 flex items-center justify-center'>
+                                                    <figure className='w-full h-64 relative'>
+                                                        <Image
+                                                            fill
+                                                            src={projectImg}
+                                                            alt={projectName}
+                                                        />
+                                                    </figure>
+                                                </div>
                                                 <div className='flex-1'>
                                                     <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
                                                     <h2>{projectName}</h2>
                                                     <p>{projectOverview}</p>
-                                                    <div className='my-5 flex gap-2 flex-wrap'>
-                                                        {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-slate-500 bg-opacity-50 rounded'>{tool}</span>)}
+                                                    <div>
+                                                        <h3 className='my-subtitle text-emerald-500'>Technologies</h3>
+                                                        <div className='my-5 flex gap-2 flex-wrap'>
+                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-slate-500 bg-opacity-50 rounded'>{tool}</span>)}
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
                                             </div>
                                         </div>
                                     })}
