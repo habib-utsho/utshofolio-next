@@ -65,7 +65,6 @@ const ProjectsPage = () => {
 
 
 
-
                     {/* Tabpanel */}
                     {
                         tabPanels.map((tabPanel, ind) => {
