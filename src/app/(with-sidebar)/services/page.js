@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaAccusoft, FaAdjust, FaFunnelDollar, FaWeebly } from 'react-icons/fa';
 
+
 const ServicesPage = () => {
     return (
         <div className='p-6 grid grid-cols-12 text-slate-50'>
