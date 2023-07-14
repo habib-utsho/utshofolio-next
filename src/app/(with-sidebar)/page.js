@@ -11,7 +11,8 @@ const page = () => {
                 <button className='my-btn-one'>Download resume <FaDownload></FaDownload></button>
             </div>
 
-            <div className='grid grid-cols-2 md:grid-cols-4 bg-gradient-to-r from-red-300 to-red-500 mt-10 text-center w-full'>
+
+            <div className='grid grid-cols-2 md:grid-cols-4 bg-gradient-to-tr from-red-500 to-blue-500 mt-10 text-center w-full'>
                 <div className='p-7'>
                     <div className='p-5 space-y-3 md:border-r'>
                         <h2 className='my-title'>1.5+</h2>
