@@ -85,7 +85,7 @@ const ProjectsPage = () => {
                                             <div className='flex-1 space-y-4'>
                                                 <div className='flex gap-2 items-center'>
                                                     <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
-                                                    <h2>{projectName}</h2>
+                                                    <h2 className='my-subtitle'>{projectName}</h2>
                                                 </div>
                                                 <p className='text-gray-300'>{projectOverview}</p>
                                                 <div>
@@ -115,7 +115,7 @@ const ProjectsPage = () => {
                                                 <div className='flex-1 space-y-4'>
                                                     <div className='flex gap-2 items-center'>
                                                         <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
-                                                        <h2>{projectName}</h2>
+                                                        <h2 className='my-subtitle'>{projectName}</h2>
                                                     </div>
                                                     <p className='text-gray-300'>{projectOverview}</p>
                                                     <div>
