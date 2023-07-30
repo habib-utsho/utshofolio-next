@@ -45,6 +45,7 @@ const ProjectsPage = () => {
         },
     ]
 
+
     const tabPanels = ['All', 'Fullstack', 'Frontend']
 
     return (
