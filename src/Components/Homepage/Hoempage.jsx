@@ -16,8 +16,11 @@ const Hoempage = () => {
                     <Image src={utsho} alt='Ahashan Habib Utsho' fill={true} className='group-hover:scale-105 transition duration-500'></Image>
                 </figure>
                 <h2 className='my-title my-clr-one'>Ahashan Habib Utsho</h2>
-                <h3> Full stack web developer </h3>
-                <p>Sometimes five Imprimaturs are seen together dialogue-wise in the piazza of one title-page, complimenting and ducking each to other with their shaven reverences, whether the author, who stands by in perplexity at the foot of his epistle, shall to the press or to the sponge.</p>
+                <h3> MERN stack developer </h3>
+                <p className='px-8 md:px-22'>To obtain a challenging position as a Web Developer in a dynamic and innovative
+                    company where i can utilize my technical skills and creativity to design and develop
+                    user-friendly responsive websites. I am available for any kind of job opportunity that
+                    suits my interests.</p>
                 <button className='my-btn-one'>Download resume <FaDownload></FaDownload></button>
             </div>
 

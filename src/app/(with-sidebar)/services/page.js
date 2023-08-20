@@ -5,9 +5,9 @@ import { FaAccusoft, FaAdjust, FaFunnelDollar, FaWeebly } from 'react-icons/fa';
 
 const ServicesPage = () => {
     return (
-        <div className='p-6 grid grid-cols-12 text-slate-50'>
+        <div className='p-6 grid grid-cols-12 gap-8 pb-16 md:pb-6 text-slate-50'>
 
-            <div className='col-span-4 space-y-3'>
+            <div className='col-span-12 md:col-span-4 space-y-3'>
                 <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Services</h2>
 
                 <h2 className='my-title my-clr-one'>What I do?</h2>
@@ -39,7 +39,7 @@ const ServicesPage = () => {
 
             </div>
 
-            <div className='col-span-8 space-y-5 flex flex-col justify-center'>
+            <div className='col-span-12 md:col-span-8 space-y-5 flex flex-col justify-center'>
 
                 <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaWeebly></FaWeebly> </span>

@@ -35,11 +35,11 @@ const AboutPage = () => {
 
                     <div className='space-y-3'>
                         <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Frontend Development</h2>
-                        <div className='flex gap-3'>
+                        <div className='flex flex-wrap gap-4'>
                             <span>Javascript</span>
                             <span>Bootstrap</span>
                             <span>Tailwind</span>
-                            <span>React</span>
+                            <span>React JS</span>
                             <span>Next JS</span>
                             <span>Redux</span>
                         </div>
@@ -47,7 +47,7 @@ const AboutPage = () => {
 
                     <div className='space-y-3'>
                         <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Backend Development</h2>
-                        <div className='flex gap-3'>
+                        <div className='flex flex-wrap gap-4'>
                             <span>Javascript</span>
                             <span>Node JS</span>
                             <span>Express JS</span>
@@ -58,7 +58,7 @@ const AboutPage = () => {
 
                     <div className='space-y-3'>
                         <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Tools</h2>
-                        <div className='flex gap-3'>
+                        <div className='flex flex-row flex-wrap gap-4'>
                             <span>Git</span>
                             <span>ESLint</span>
                             <span>NPM</span>
@@ -77,17 +77,14 @@ const AboutPage = () => {
                     <div className='space-y-2'>
                         <h2 className='my-title text-[#E84545] opacity-30'>Introduction</h2>
                         <p>
-                            Web developer by day, code wizard by night. I bring websites to life with a sprinkle of magic and a dash of caffeine. Armed with a keyboard and a wicked sense of humor, I turn complex problems into digital wonders. If you can dream it, I can code it (and maybe throw in a few jokes along the way). So buckle up and let's embark on a hilarious journey through the world of web development together! Trust me, your website will thank you (and maybe even crack a smile).</p>
+                            Web developer by day, code wizard by night. I bring websites to life with a sprinkle of magic and a dash of caffeine. Armed with a keyboard and a wicked sense of humor, I turn complex problems into digital wonders. If you can dream it, I can code it (and maybe throw in a few jokes along the way). So buckle up and let{"'"}s embark on a hilarious journey through the world of web development together! Trust me, your website will thank you (and maybe even crack a smile).</p>
                     </div>
 
                     {/* About me */}
                     <div className='my-8 space-y-5'>
                         <div className='space-y-2'>
                             <h2 className='my-title text-[#E84545] opacity-30'>About me</h2>
-                            <p>To obtain a challenging position as a Web Developer in a dynamic
-                                and innovative company where i can utilize my technical skills and
-                                creativity to design and develop user-friendly responsive websites. I
-                                am available for any kind of job opportunity that suits my interests.</p>
+                            <p>I am a passionate web developer with a focus on the MERN stack. I love building beautiful and functional websites and applications that make people{"'"}s lives easier. I am currently studying Computer Science at Dhaka International University, where I am learning the latest web development technologies. I am also an active member of the web development community, and I enjoy sharing my knowledge and skills with others.</p>
                         </div>
                     </div>
 
@@ -132,6 +129,14 @@ const AboutPage = () => {
                 {/* Education */}
                 <div>
                     <h2 className='my-title relative pb-3'>Education<span className='block absolute top-full left-0 h-1 w-full bg-gradient-to-tr from-red-500 to-blue-500'></span></h2>
+
+                    <div className='flex items-center justify-between gap-8 !my-10'>
+                        <div className='space-y-3'>
+                            <h2 className='my-subtitle'>Dhaka International University</h2>
+                            <p>BSc in Computer Science and Engineering</p>
+                        </div>
+                        <p className='text-slate-400'>2023 - Ongoing</p>
+                    </div>
 
                     <div className='flex items-center justify-between gap-8 !my-10'>
                         <div className='space-y-3'>
