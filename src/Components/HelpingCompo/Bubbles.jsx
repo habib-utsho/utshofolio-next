@@ -27,7 +27,7 @@ const Bubbles = () => {
             const numberOfBubbles = 20; // Adjust the number of bubbles
             const generateRandomBubble = () => {
                 const left = Math.random() * 100; // Random left position
-                const animationDuration = 5 + Math.random() * 5; // Random duration
+                const animationDuration = 10 + Math.random() * 10; // Random duration
                 const bubbleColor = generateRandomColor(); // Generate random bubble color
 
                 return (

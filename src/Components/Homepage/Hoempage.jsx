@@ -1,8 +1,10 @@
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import { FaDownload } from 'react-icons/fa';
 import utsho from '/public/assets/img/utsho.jpg'
 import loveCursor from '/public/assets/img/loveCursor.png'
+import CountUp from 'react-countup';
 
 
 const Hoempage = () => {
@@ -11,7 +13,7 @@ const Hoempage = () => {
             <div className='text-white text-center space-y-5'>
                 {/* Custom cursor is not working */}
                 <figure className='h-[300px] w-[300px] mx-auto relative utshoProPic group overflow-hidden border-2 border-green-500 rounded-xl' style={{ cursor: `url(${loveCursor}), auto` }}>
-                    <Image src={utsho} alt='Ahashan Habib Utsho'  fill={true} className='group-hover:scale-105 transition duration-500'></Image>
+                    <Image src={utsho} alt='Ahashan Habib Utsho' fill={true} className='group-hover:scale-105 transition duration-500'></Image>
                 </figure>
                 <h2 className='my-title my-clr-one'>Ahashan Habib Utsho</h2>
                 <h3> Full stack web developer </h3>
@@ -23,13 +25,23 @@ const Hoempage = () => {
             <div className='grid grid-cols-2 md:grid-cols-4 bg-gradient-to-tr from-red-500 to-blue-500 mt-10 text-center w-full rounded'>
                 <div className='p-7'>
                     <div className='p-5 space-y-3 md:border-r'>
-                        <h2 className='my-title'>1.5+</h2>
+                        <h2 className='my-title'><CountUp
+                            start={0}
+                            end={2}
+                            duration={2}
+                            separator=" "
+                        />+</h2>
                         <p>years of experience</p>
                     </div>
                 </div>
                 <div className='p-7'>
                     <div className='p-5 space-y-3 md:border-r'>
-                        <h2 className='my-title'>50+</h2>
+                        <h2 className='my-title'><CountUp
+                            start={0}
+                            end={50}
+                            duration={2}
+                            separator=" "
+                        />+</h2>
                         <p>projects completed</p>
                     </div>
                 </div>
@@ -41,7 +53,12 @@ const Hoempage = () => {
                 </div>
                 <div className='p-7'>
                     <div className='p-5 space-y-3'>
-                        <h2 className='my-title'>20+</h2>
+                        <h2 className='my-title'><CountUp
+                            start={0}
+                            end={20}
+                            duration={2}
+                            separator=" "
+                        />+</h2>
                         <p>open source project!</p>
                     </div>
                 </div>

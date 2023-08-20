@@ -76,7 +76,7 @@
   background-color: transparent;
 }
 
-/* BubbleBackground.module.css */
+/* Dynamic bubble up css */
 .bubbleBackground {
   position: fixed;
   top: 0;
@@ -86,7 +86,6 @@
   z-index: -1;
   pointer-events: none; /* Prevent interactions with bubbles */
 }
-
 .bubble {
   width: 25px;
   height: 25px;
@@ -98,7 +97,6 @@
   animation: bubbleAnimation linear infinite;
   transform-origin: center bottom;
 }
-
 @keyframes bubbleAnimation {
   0% {
     transform: translateY(100%) scale(0);
