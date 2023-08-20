@@ -76,6 +76,46 @@
   background-color: transparent;
 }
 
+/* BubbleBackground.module.css */
+.bubbleBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* Prevent interactions with bubbles */
+}
+
+.bubble {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  animation: bubbleAnimation linear infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: translateY(100%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300vh) scale(2);
+    opacity: 0;
+  }
+}
+
+
+
+
 /* Utsho pro pic */
 .utshoProPic {
 	position: relative;
@@ -108,6 +148,7 @@
 		left: 125%;
 	}
 }
+
 
 /* my-title */
 .my-title{
