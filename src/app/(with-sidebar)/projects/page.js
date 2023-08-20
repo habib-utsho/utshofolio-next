@@ -46,8 +46,78 @@ const ProjectsPage = () => {
             "liveLink": "cuisinefood.netlify.app/",
             "projectImg": "https://i.ibb.co/rf0KmGf/Cuisine-Food-1.png",
             "projectLogo": "https://i.ibb.co/8xSFNB1/logo.png",
-            "projectOverview": "Welcome to our recipe website, a platform where you can discover a wide variety of recipes from top chefs, and contribute your own recipes by signing up or signing in. This project was developed using React for the client-side, ensuring an interactive and user-friendly experience. To handle the server-side operations, we utilized Firebase and Express, leveraging their functionalities to create a seamless and efficient platform. Whether you're looking for culinary inspiration or eager to share your own delicious creations, our recipe website is here to satisfy your culinary desires.",
+            "projectOverview": "Welcome to my food-related website! Here, I'm excited to share my culinary explorations, passion for flavors, and love for creating delightful gastronomic experiences. Whether you're a seasoned food enthusiast or someone just starting to appreciate the art of cooking, you'll find a variety of delectable recipes, cooking tips, and culinary inspirations to tickle your taste buds.",
             "tools": ["HTML", "CSS", "Tailwind", "DaisyUI"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 5,
+            "projectName": "ColorScript",
+            "liveLink": "https://source-code-007.github.io/quiz-app/",
+            "projectImg": "https://i.ibb.co/4wyQnwT/Color-Script.png",
+            "projectLogo": "https://i.ibb.co/R7wWPKk/registration-mark-1203892.png",
+            "projectOverview": "ColorScript is a random color generator project. ColorScript is a simple yet powerful JavaScript random color generator that allows you to generate random colors, fine-tune your colors, and save your favorite colors for future reference. With its intuitive interface and easy-to-use controls, ColorScript is the perfect tool for anyone who wants to work with colors.",
+            "tools": ["HTML", "CSS", "Tailwind", "JavaScript"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 6,
+            "projectName": "BrainBuzz",
+            "liveLink": "https://source-code-007.github.io/quiz-app/",
+            "projectImg": "https://i.ibb.co/SQFXWk1/Quiz.png",
+            "projectLogo": "https://i.ibb.co/S3vbwWM/question-3888666.png",
+            "projectOverview": "ColorScript is a random color generator project. ColorScript is a simple yet powerful JavaScript random color generator that allows you to generate random colors, fine-tune your colors, and save your favorite colors for future reference. With its intuitive interface and easy-to-use controls, ColorScript is the perfect tool for anyone who wants to work with colors.",
+            "tools": ["HTML", "CSS", "Bootstrap", "JavaScript"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 7,
+            "projectName": "IELTS Wizards",
+            "liveLink": "https://ielts-wizards.netlify.app/",
+            "projectImg": "https://i.ibb.co/4Vy1NdQ/IELTS-Wizards.png",
+            "projectLogo": "https://i.ibb.co/mNnRdYt/In-Gelt-white.png",
+            "projectOverview": "Welcome to IELTS-Wizards! Our project is your ultimate guide to conquering the IELTS exam. With personalized resources, expert guidance, and a supportive community, we're here to help you achieve your IELTS goals with confidence and success.",
+            "tools": ["React", "Tailwind"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 8,
+            "projectName": "Finix Template",
+            "liveLink": "https://source-code-007.github.io/Finix-template/",
+            "projectImg": "https://i.ibb.co/2jTpZ4k/Hello-world.png",
+            "projectLogo": "https://i.ibb.co/GsCyydD/logo.png",
+            "projectOverview": "Finix Template is a website which provides your Business Loan Solution. Our project offers a sleek website template designed for businesses seeking loans. Showcase services, benefits, and easy connections, all while creating a strong online presence for financial success.",
+            "tools": ["HTML", "CSS", "Bootstrap", "JavaScript"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 9,
+            "projectName": "Clothing",
+            "liveLink": "https://source-code-007.github.io/clothing-KPI/index.html",
+            "projectImg": "https://i.ibb.co/nM7wcSf/Creative-Fabrica.png",
+            "projectLogo": "https://i.ibb.co/1q7SYGy/dark-logo.png",
+            "projectOverview": "Welcome to Clothing website, your one-stop shop for stylish and affordable clothes. We offer a wide variety of men's, women's, and children's clothing, all made from high-quality materials. We also have a wide selection of accessories, so you can complete your look. We're passionate about fashion and we're always looking for new trends to bring to our customers. We also believe in sustainable practices, so we use recycled materials whenever possible. Whether you're looking for a new outfit for a special occasion or you just need some everyday staples, we have something for you. Shop our latest arrivals today and see for yourself why Clothing is the best place to buy clothes online.",
+            "tools": ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 10,
+            "projectName": "iGuru",
+            "liveLink": "https://source-code-007.github.io/onlineEducation_iGuru_KPI_finalProject/",
+            "projectImg": "https://i.ibb.co/wy3fWdZ/iGuru.png",
+            "projectLogo": "https://i.ibb.co/2Wpfkdg/counter-Img-One.webp",
+            "projectOverview": "Your Path to Online Learning! Our project is a user-friendly website designed to revolutionize your learning experience. With iGuru, you can access a diverse range of courses and educational resources from the comfort of your own space. Explore a seamless interface that connects you with expert instructors and engaging content. From skill enhancement to personal growth, iGuru offers a platform that caters to learners of all levels. Browse courses, track progress, and interact with fellow students to enhance your knowledge and achieve your learning goals.",
+            "tools": ["HTML", "CSS", "Tailwind", "JavaScript", "jQuery"],
+            "category": "Frontend"
+        },
+        {
+            "_id": 12,
+            "projectName": "AnalogGlow",
+            "liveLink": "https://source-code-007.github.io/Analog-Clock/",
+            "projectImg": "https://i.ibb.co/zHwQV6v/Analog-Clock.png",
+            "projectLogo": "https://i.ibb.co/GV7N2tR/clock-2784459.png",
+            "projectOverview": "Introducing AnalogGlow - a project that celebrates the timeless beauty of analog clocks. Immerse yourself in the artistry of simplicity as you explore our elegant analog clock design. With gracefully sweeping hands and a classic dial, our project brings the essence of traditional timekeeping to the digital realm.",
+            "tools": ["HTML", "CSS", "JavaScript", ],
             "category": "Frontend"
         },
     ]
