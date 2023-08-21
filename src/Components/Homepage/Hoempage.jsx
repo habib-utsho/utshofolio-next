@@ -1,10 +1,10 @@
 'use client'
 import Image from 'next/image';
 import React from 'react';
-import { FaDownload } from 'react-icons/fa';
 import utsho from '/public/assets/img/utsho.jpg'
 import loveCursor from '/public/assets/img/loveCursor.png'
 import CountUp from 'react-countup';
+import Link from 'next/link';
 
 
 const Hoempage = () => {
@@ -17,11 +17,11 @@ const Hoempage = () => {
                 </figure>
                 <h2 className='my-title my-clr-one'>Ahashan Habib Utsho</h2>
                 <h3> MERN stack developer </h3>
-                <p className='px-8 md:px-22'>To obtain a challenging position as a Web Developer in a dynamic and innovative
+                <p className='px-8 md:px-22 mb-4'>To obtain a challenging position as a Web Developer in a dynamic and innovative
                     company where i can utilize my technical skills and creativity to design and develop
                     user-friendly responsive websites. I am available for any kind of job opportunity that
                     suits my interests.</p>
-                <button className='my-btn-one'>Download resume <FaDownload></FaDownload></button>
+                <Link href={'https://drive.google.com/file/d/1LE_UNmr0u0spqej3QxYeNkNXtryQBo8f/view?usp=drive_link'} target='_blank' className='inline-block'><button className='my-btn-one'>Get Resume </button></Link>
             </div>
 
 
@@ -32,9 +32,8 @@ const Hoempage = () => {
                             start={0}
                             end={2}
                             duration={2}
-                            separator=" "
                         />+</h2>
-                        <p>years of experience</p>
+                        <p className='font-semibold'>years of experience</p>
                     </div>
                 </div>
                 <div className='p-7'>
@@ -43,15 +42,18 @@ const Hoempage = () => {
                             start={0}
                             end={50}
                             duration={2}
-                            separator=" "
                         />+</h2>
-                        <p>projects completed</p>
+                        <p className='font-semibold'>projects completed</p>
                     </div>
                 </div>
                 <div className='p-7'>
                     <div className='p-5 space-y-3 md:border-r'>
-                        <h2 className='my-title'>50+</h2>
-                        <p>project completed</p>
+                        <h2 className='my-title'><CountUp
+                            start={0}
+                            end={10}
+                            duration={2}
+                        />+</h2>
+                        <p className='font-semibold'>Happy clients</p>
                     </div>
                 </div>
                 <div className='p-7'>
@@ -60,9 +62,8 @@ const Hoempage = () => {
                             start={0}
                             end={20}
                             duration={2}
-                            separator=" "
                         />+</h2>
-                        <p>open source project!</p>
+                        <p className='font-semibold'>open source projects!</p>
                     </div>
                 </div>
             </div>

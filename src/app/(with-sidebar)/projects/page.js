@@ -117,7 +117,7 @@ const ProjectsPage = () => {
             "projectImg": "https://i.ibb.co/zHwQV6v/Analog-Clock.png",
             "projectLogo": "https://i.ibb.co/GV7N2tR/clock-2784459.png",
             "projectOverview": "Introducing AnalogGlow - a project that celebrates the timeless beauty of analog clocks. Immerse yourself in the artistry of simplicity as you explore our elegant analog clock design. With gracefully sweeping hands and a classic dial, our project brings the essence of traditional timekeeping to the digital realm.",
-            "tools": ["HTML", "CSS", "JavaScript", ],
+            "tools": ["HTML", "CSS", "JavaScript",],
             "category": "Frontend"
         },
     ]
@@ -131,16 +131,16 @@ const ProjectsPage = () => {
     return (
         <div className='p-6 text-white min-h-screen'>
 
-            <div className='space-y-4'>
+            <div className='space-y-4 mb-6'>
                 <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>My projects</h2>
                 <h2 className='my-title my-clr-one'>Transforming Ideas into Reality</h2>
             </div>
 
             <div>
                 <Tabs>
-                    <TabList className='flex gap-2'>
+                    <TabList className='flex'>
                         {
-                            tabPanels.map((category, ind) => <Tab key={ind} onClick={() => setActiveTab(category)} className={`p-3 cursor-pointer outline-none ${activeTab === category && 'border-b border-green-500'}`}>{category}</Tab>)
+                            tabPanels.map((category, ind) => <Tab key={ind} onClick={() => setActiveTab(category)} className={`p-3 border border-slate-200 cursor-pointer outline-none transition ${activeTab === category && '!border-b-2 bg-slate-800 !border-b-green-500 !text-green-500'}`}>{category}</Tab>)
                         }
                     </TabList>
 
@@ -163,7 +163,9 @@ const ProjectsPage = () => {
                                             </div>
                                             <div className='flex-1 space-y-4'>
                                                 <div className='flex gap-2 items-center'>
-                                                    <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
+                                                <figure className='w-12 h-12 relative'>
+                                                            <Image fill={true} src={projectLogo} alt={projectName}></Image>
+                                                        </figure>
                                                     <h2 className='my-subtitle'>{projectName}</h2>
                                                 </div>
                                                 <p className='text-gray-300'>{projectOverview}</p>
@@ -193,7 +195,9 @@ const ProjectsPage = () => {
                                                 </div>
                                                 <div className='flex-1 space-y-4'>
                                                     <div className='flex gap-2 items-center'>
-                                                        <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
+                                                        <figure className='w-12 h-12 relative'>
+                                                            <Image fill={true} src={projectLogo} alt={projectName}></Image>
+                                                        </figure>
                                                         <h2 className='my-subtitle'>{projectName}</h2>
                                                     </div>
                                                     <p className='text-gray-300'>{projectOverview}</p>
@@ -222,7 +226,9 @@ const ProjectsPage = () => {
                                                 </div>
                                                 <div className='flex-1 space-y-4'>
                                                     <div className='flex gap-2 items-center'>
-                                                        <Image width={45} height={45} src={projectLogo} alt={projectName}></Image>
+                                                    <figure className='w-12 h-12 relative'>
+                                                            <Image fill={true} src={projectLogo} alt={projectName}></Image>
+                                                        </figure>
                                                         <h2 className='my-subtitle'>{projectName}</h2>
                                                     </div>
                                                     <p className='text-gray-300'>{projectOverview}</p>
