@@ -78,7 +78,7 @@ const AboutPage = () => {
                     <div className='space-y-2'>
                         <h2 className='my-title text-[#E84545] opacity-30'>Introduction</h2>
                         <p>
-                            Web developer by day, code wizard by night. I bring websites to life with a sprinkle of magic and a dash of caffeine. Armed with a keyboard and a wicked sense of humor, I turn complex problems into digital wonders. If you can dream it, I can code it (and maybe throw in a few jokes along the way). So buckle up and let{"'"}s embark on a hilarious journey through the world of web development together! Trust me, your website will thank you (and maybe even crack a smile).</p>
+                            Web developer by day, code wizard by night. I bring websites to life with a sprinkle of magic and a dash of caffeine. Armed with a keyboard and a wicked sense of humor, I turn complex problems into digital wonders. If you can dream it, I can code it and maybe throw in a few jokes along the way. So buckle up and let{"'"}s embark on a hilarious journey through the world of web development together! Trust me, your website will thank you and maybe even crack a smile.</p>
                     </div>
 
                     {/* About me */}
@@ -93,7 +93,7 @@ const AboutPage = () => {
                     <div className='my-8 space-y-5'>
                         <div className='space-y-2'>
                             <h2 className='my-title text-[#E84545] opacity-30'>Approach and Philosophy</h2>
-                            <p>My approach to web development is driven by a user-centric focus, attention to detail, and a commitment to clean and efficient code. I believe in responsive design, continuous learning, and fostering collaborative partnerships with clients. Innovation and creativity are at the core of my work, ensuring unique and exceptional digital experiences. Let's create something remarkable together!.</p>
+                            <p>My approach to web development is driven by a user-centric focus, attention to detail, and a commitment to clean and efficient code. I believe in responsive design, continuous learning, and fostering collaborative partnerships with clients. Innovation and creativity are at the core of my work, ensuring unique and exceptional digital experiences. Let{"'"}s create something remarkable together!.</p>
                         </div>
                     </div>
 

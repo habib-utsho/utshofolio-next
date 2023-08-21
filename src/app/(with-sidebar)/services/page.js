@@ -39,13 +39,13 @@ const ServicesPage = () => {
 
             </div>
 
-            <div className='col-span-12 md:col-span-8 space-y-5 flex flex-col justify-center'>
+            <div className='col-span-12 md:col-span-8 space-y-4 flex flex-col justify-center'>
 
                 <div className='p-5 flex items-center bg-[#081229]'>
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaWeebly></FaWeebly> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Web development</h2>
-                        <p className='text-slate-300'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere doloremque totam qui illo adipisci unde.</p>
+                        <p className='text-slate-300'>I am a web developer with 2+ years of experience in creating and maintaining websites. I am proficient in a variety of technologies, including Tailwind, Bootstrap, JavaScript, React JS, Next JS, Express JS, MongoDB, and Firebase.</p>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ const ServicesPage = () => {
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaAccusoft></FaAccusoft> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Design strategy</h2>
-                        <p className='text-slate-300'>I take the time to understand your business goals and target audience. By aligning design strategy with your vision, I ensure that your digital presence is effective and purposeful.</p>
+                        <p className='text-slate-300'> I am a design strategist who understands the business goals, target audience, and technical constraints of websites. I develop plans for the overall look and feel of websites that are effective and purposeful.</p>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@ const ServicesPage = () => {
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaAccusoft></FaAccusoft> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Frontend Development</h2>
-                        <p className='text-slate-300'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere doloremque totam qui illo adipisci unde.</p>
+                        <p className='text-slate-300'>I am a proficient frontend developer with experience in Tailwind, Bootstrap, React, Framer Motion. I create visually appealing and user-friendly websites with performance optimization and accessibility in mind.</p>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@ const ServicesPage = () => {
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaAdjust></FaAdjust> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Performance Optimization</h2>
-                        <p className='text-slate-300'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere doloremque totam qui illo adipisci unde.</p>
+                        <p className='text-slate-300'>I am a performance optimization specialist who can improve the speed and performance of websites. I optimize the code, images, and other resources to make websites load faster and rank better in search engines.</p>
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@ const ServicesPage = () => {
                     <span className='w-1/12 text-3xl text-[#E84545]'><FaFunnelDollar></FaFunnelDollar> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Fullstack Development</h2>
-                        <p className='text-slate-300'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere doloremque totam qui illo adipisci unde.</p>
+                        <p className='text-slate-300'>I am a fullstack developer with experience in developing both the frontend and backend of websites using the MERN stack. I am also experienced in performance optimization and security.</p>
                     </div>
                 </div>
 
