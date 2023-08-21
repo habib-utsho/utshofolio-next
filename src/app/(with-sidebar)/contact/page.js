@@ -2,12 +2,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaMailBulk, FaPhone, FaSearchLocation } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactPage = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const handleSubmitFunc = form => {
-        console.log(form);
+        const {name, email, message} = form
+        toast.success('Thank your for contact with me!', {
+            position: "bottom-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
     }
 
     // console.log(watch("name")) //get name outside onSubmit form
@@ -15,7 +27,7 @@ const ContactPage = () => {
     return (
         <div className='p-6 text-white'>
             <h2 className='my-subtitle relative pl-3 my-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Contact with me</h2>
-            <h2 className='my-title my-clr-one'>Let's craft something innovative together!</h2>
+            <h2 className='my-title my-clr-one'>Let{"'"}s craft something innovative together!</h2>
 
             {/* contact info three box */}
             <div className='my-10 flex gap-5'>
@@ -54,6 +66,19 @@ const ContactPage = () => {
                 </div>
                 <button type='submit' className='my-btn-one'>Send</button>
             </form>
+
+            <ToastContainer
+                position="bottom-right"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </div>
     );
 };

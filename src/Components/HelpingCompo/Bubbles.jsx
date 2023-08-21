@@ -23,7 +23,6 @@ const Bubbles = () => {
     useEffect(() => {
 
         if (!isMobile) {
-            console.log('mobile naa');
             const numberOfBubbles = 20; // Adjust the number of bubbles
             const generateRandomBubble = () => {
                 const left = Math.random() * 100; // Random left position

@@ -60,6 +60,7 @@ const AboutPage = () => {
                         <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Tools</h2>
                         <div className='flex flex-row flex-wrap gap-4'>
                             <span>Git</span>
+                            <span>JWT</span>
                             <span>ESLint</span>
                             <span>NPM</span>
                             <span>Postman</span>
