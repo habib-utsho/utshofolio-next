@@ -8,8 +8,6 @@ export const metadata = {
   description: 'Portfolio of Ahashan Habib Utsho',
 }
 
-
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
