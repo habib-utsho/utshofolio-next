@@ -15,7 +15,7 @@ const ProjectsPage = () => {
             "projectImg": "https://i.ibb.co/6Y3GswW/Wiz-Craft-Academy.png",
             "projectLogo": "https://i.ibb.co/4m2zPNn/magician-Logo.png",
             "projectOverview": "Welcome to the Magic School Summer Camp website! This React-based project is designed to provide an exceptional summer camp experience for students. With a seamless integration of React, Express, MongoDB, Tailwind CSS, and Firebase, our platform offers personalized dashboards for students, instructors, and administrators. Enroll in captivating activities, access student, instructor, and admin dashboards, and embark on an unforgettable journey of learning and fun. Join us and let the magic of summer camp ignite your imagination!",
-            "tools": ["HTML", "CSS", "JavaScript", "React", "Firebase", "Express JS", "mongoDB"],
+            "tools": ["React", "Firebase", "Express JS", "mongoDB"],
             "category": "Fullstack"
 
         },
@@ -26,7 +26,7 @@ const ProjectsPage = () => {
             "projectImg": "https://i.ibb.co/rkQhVKC/Edutainment-Toys.png",
             "projectLogo": "https://i.ibb.co/2Mh7mby/logoOne.png",
             "projectOverview": "Welcome to Edutainment Toy, an responsive educational toy website where users can explore, contribute, and engage with a wide range of educational toys. This website is built using React and Tailwind for the frontend, providing a visually appealing and user-friendly experience. For authentication, Firebase is utilized to ensure seamless and secure user login. On the backend, Express.js, a popular Node.js framework, is employed to handle the server-side operations, ensuring efficient and reliable functionality. MongoDB is integrated as the database, enabling effective storage and retrieval of toy-related data. One of the exciting features of this website is that it allows anyone to register and post their own toys, promoting a collaborative and interactive community. Join us and become a part of this educational toy journey!",
-            "tools": ["HTML", "CSS", "JavaScript", "React", "Firebase", "Express JS", "mongoDB"],
+            "tools": ["React", "Firebase", "Express JS", "mongoDB"],
             "category": "Fullstack"
 
         },
@@ -37,7 +37,7 @@ const ProjectsPage = () => {
             "projectImg": "https://i.ibb.co/CbTsmRZ/Spice-of-Life.png",
             "projectLogo": "https://i.ibb.co/yNzL9Rg/logo2.png",
             "projectOverview": "Welcome to our recipe website, a platform where you can discover a wide variety of recipes from top chefs, and contribute your own recipes by signing up or signing in. This project was developed using React for the client-side, ensuring an interactive and user-friendly experience. To handle the server-side operations, we utilized Firebase and Express, leveraging their functionalities to create a seamless and efficient platform. Whether you're looking for culinary inspiration or eager to share your own delicious creations, our recipe website is here to satisfy your culinary desires.",
-            "tools": ["HTML", "CSS", "JavaScript", "React", "Firebase", "Express JS"],
+            "tools": ["React", "Firebase", "Express JS"],
             "category": "Fullstack"
         },
         {
@@ -66,7 +66,7 @@ const ProjectsPage = () => {
             "liveLink": "https://source-code-007.github.io/quiz-app/",
             "projectImg": "https://i.ibb.co/SQFXWk1/Quiz.png",
             "projectLogo": "https://i.ibb.co/S3vbwWM/question-3888666.png",
-            "projectOverview": "ColorScript is a random color generator project. ColorScript is a simple yet powerful JavaScript random color generator that allows you to generate random colors, fine-tune your colors, and save your favorite colors for future reference. With its intuitive interface and easy-to-use controls, ColorScript is the perfect tool for anyone who wants to work with colors.",
+            "projectOverview": "BrainBuzz is a quiz application built using HTML, CSS, and JavaScript that challenges users with a variety of questions and tests their knowledge. The app provides an exciting and time-sensitive experience, pushing users to think quickly and make informed decisions. The app also helps users learn by providing correct answers and explanations if they select the wrong answer.",
             "tools": ["HTML", "CSS", "Bootstrap", "JavaScript"],
             "category": "Frontend"
         },

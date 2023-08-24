@@ -60,7 +60,7 @@ const Hoempage = () => {
                     <div className='p-5 space-y-3'>
                         <h2 className='my-title'><CountUp
                             start={0}
-                            end={20}
+                            end={10}
                             duration={2}
                         />+</h2>
                         <p className='font-semibold'>open source projects!</p>
