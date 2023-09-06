@@ -10,7 +10,7 @@ const ServicesPage = () => {
             <div className='col-span-12 md:col-span-4 space-y-3'>
                 <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Services</h2>
 
-                <h2 className='my-title my-clr-one'>What I do?</h2>
+                <h2 className='my-title gradient-text'>What I do?</h2>
 
                 <p className='text-slate-300 !my-6'>Welcome to my Services Page! As a solo web developer, I specialize in solving problems and creating exceptional digital solutions. With a focus on usability and functionality, I design and develop websites and applications that make a real impact.</p>
 

@@ -53,7 +53,7 @@ const ProjectsPage = () => {
         {
             "_id": 5,
             "projectName": "ColorScript",
-            "liveLink": "https://source-code-007.github.io/quiz-app/",
+            "liveLink": "https://source-code-007.github.io/ColorScript/",
             "projectImg": "https://i.ibb.co/4wyQnwT/Color-Script.png",
             "projectLogo": "https://i.ibb.co/R7wWPKk/registration-mark-1203892.png",
             "projectOverview": "ColorScript is a random color generator project. ColorScript is a simple yet powerful JavaScript random color generator that allows you to generate random colors, fine-tune your colors, and save your favorite colors for future reference. With its intuitive interface and easy-to-use controls, ColorScript is the perfect tool for anyone who wants to work with colors.",
@@ -133,14 +133,14 @@ const ProjectsPage = () => {
 
             <div className='space-y-4 mb-6'>
                 <h2 className='my-subtitle relative pl-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>My projects</h2>
-                <h2 className='my-title my-clr-one'>Transforming Ideas into Reality</h2>
+                <h2 className='my-title bg-clip-text text-transparent cmn-gradient-one'>Transforming Ideas into Reality</h2>
             </div>
 
             <div>
                 <Tabs>
                     <TabList className='flex'>
                         {
-                            tabPanels.map((category, ind) => <Tab key={ind} onClick={() => setActiveTab(category)} className={`p-3 border border-slate-200 cursor-pointer outline-none transition ${activeTab === category && '!border-b-2 bg-slate-800 !border-b-green-500 !text-green-500'}`}>{category}</Tab>)
+                            tabPanels.map((category, ind) => <Tab key={ind} onClick={() => setActiveTab(category)} className={`p-3 border border-slate-200 cursor-pointer outline-none transition font-semibold ${activeTab === category && '!bg-[#081229] !text-purple-500'}`}>{category}</Tab>)
                         }
                     </TabList>
 
@@ -170,7 +170,7 @@ const ProjectsPage = () => {
                                                 </div>
                                                 <p className='text-gray-300'>{projectOverview}</p>
                                                 <div>
-                                                    <h3 className='my-subtitle text-green-500'>Technologies</h3>
+                                                    <h3 className='my-subtitle gradient-text'>Technologies</h3>
                                                     <div className='my-2 flex gap-2 flex-wrap'>
                                                         {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
                                                     </div>
@@ -202,7 +202,7 @@ const ProjectsPage = () => {
                                                     </div>
                                                     <p className='text-gray-300'>{projectOverview}</p>
                                                     <div>
-                                                        <h3 className='my-subtitle text-green-500'>Technologies</h3>
+                                                        <h3 className='my-subtitle gradient-text'>Technologies</h3>
                                                         <div className='my-2 flex gap-2 flex-wrap'>
                                                             {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
                                                         </div>
@@ -233,7 +233,7 @@ const ProjectsPage = () => {
                                                     </div>
                                                     <p className='text-gray-300'>{projectOverview}</p>
                                                     <div>
-                                                        <h3 className='my-subtitle text-green-500'>Technologies</h3>
+                                                        <h3 className='my-subtitle gradient-text'>Technologies</h3>
                                                         <div className='my-2 flex gap-2 flex-wrap'>
                                                             {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
                                                         </div>

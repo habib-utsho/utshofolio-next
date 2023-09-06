@@ -6,11 +6,11 @@ const AboutPage = () => {
     return (
         <div className='text-white'>
 
-            <div className='p-6'>
+            <div className='p-3 md:p-6'>
                 <div>
                     <h2 className='my-title'>I am specialized in</h2>
-                    <div className='flex gap-2 items-center my-clr-one font-bold my-title my-3'>
-                        <span className='text-slate-400'>{'>'}</span>
+                    <div className='flex gap-2 items-center gradient-text font-bold my-title my-3'>
+                        <span className='my-clr-one'>{'>'}</span>
                         <TypeAnimation
                             sequence={[
                                 // Same substring at the start will only be typed out once, initially
@@ -76,7 +76,7 @@ const AboutPage = () => {
 
                     {/* Introduction */}
                     <div className='space-y-2'>
-                        <h2 className='my-title text-[#E84545] opacity-30'>Introduction</h2>
+                        <h2 className='my-title gradient-text'>Introduction</h2>
                         <p>
                             Web developer by day, code wizard by night. I bring websites to life with a sprinkle of magic and a dash of caffeine. Armed with a keyboard and a wicked sense of humor, I turn complex problems into digital wonders. If you can dream it, I can code it and maybe throw in a few jokes along the way. So buckle up and let{"'"}s embark on a hilarious journey through the world of web development together! Trust me, your website will thank you and maybe even crack a smile.</p>
                     </div>
@@ -84,7 +84,7 @@ const AboutPage = () => {
                     {/* About me */}
                     <div className='my-8 space-y-5'>
                         <div className='space-y-2'>
-                            <h2 className='my-title text-[#E84545] opacity-30'>About me</h2>
+                            <h2 className='my-title gradient-text'>About me</h2>
                             <p>I am a passionate web developer with a focus on the MERN stack. I love building beautiful and functional websites and applications that make people{"'"}s lives easier. I am currently studying Computer Science at Dhaka International University, where I am learning the latest web development technologies. I am also an active member of the web development community, and I enjoy sharing my knowledge and skills with others.</p>
                         </div>
                     </div>
@@ -92,20 +92,19 @@ const AboutPage = () => {
                     {/* Approach and philosophy */}
                     <div className='my-8 space-y-5'>
                         <div className='space-y-2'>
-                            <h2 className='my-title text-[#E84545] opacity-30'>Approach and Philosophy</h2>
+                            <h2 className='my-title gradient-text'>Approach and Philosophy</h2>
                             <p>My approach to web development is driven by a user-centric focus, attention to detail, and a commitment to clean and efficient code. I believe in responsive design, continuous learning, and fostering collaborative partnerships with clients. Innovation and creativity are at the core of my work, ensuring unique and exceptional digital experiences. Let{"'"}s create something remarkable together!.</p>
                         </div>
                     </div>
 
                 </div>
-            </div>
 
             {/* Courses and education */}
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 my-10 p-6 bg-white text-slate-900'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mt-14 mb-10 p-6 bg-[#081229] shadow-md text-white'>
                 
                 {/* Course and experience */}
                 <div>
-                    <h2 className='my-title relative pb-3'>Courses and experiences <span className='block absolute top-full left-0 h-1 w-full bg-gradient-to-tr from-red-500 to-blue-500'></span></h2>
+                    <h2 className='my-title relative pb-3'>Courses and experiences <span className='block absolute top-full left-0 h-1 w-full bg-[#E84545]'></span></h2>
                     
                     {/* PH */}
                     <div className='flex items-center justify-between gap-8 !my-10'>
@@ -129,7 +128,7 @@ const AboutPage = () => {
 
                 {/* Education */}
                 <div>
-                    <h2 className='my-title relative pb-3'>Education<span className='block absolute top-full left-0 h-1 w-full bg-gradient-to-tr from-red-500 to-blue-500'></span></h2>
+                    <h2 className='my-title relative pb-3'>Education<span className='block absolute top-full left-0 h-1 w-full bg-[#E84545]'></span></h2>
 
                     <div className='flex items-center justify-between gap-8 !my-10'>
                         <div className='space-y-3'>
@@ -148,6 +147,7 @@ const AboutPage = () => {
                     </div>
 
                 </div>
+            </div>
             </div>
 
         </div>

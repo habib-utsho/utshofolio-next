@@ -27,20 +27,20 @@ const ContactPage = () => {
     return (
         <div className='p-6 text-white'>
             <h2 className='my-subtitle relative pl-3 my-3'><div className='absolute left-0 top-0 h-full w-1 bg-[#E84545]'></div>Contact with me</h2>
-            <h2 className='my-title my-clr-one'>Let{"'"}s craft something innovative together!</h2>
+            <h2 className='my-title gradient-text'>Let{"'"}s craft something innovative together!</h2>
 
             {/* contact info three box */}
             <div className='my-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
-                <div className='space-y-4 text-center p-5 py-10 rounded border border-[#081229] bg-[#E84545]  transition duration-500'>
+                <div className='space-y-4 text-center p-5 py-10 rounded border border-[#081229] cmn-gradient-one  transition duration-500'>
                     <FaSearchLocation className='mx-auto text-2xl'></FaSearchLocation>
                     <p>Badda, Dhaka</p>
                 </div>
-                <div className='space-y-4 text-center p-5 py-10 rounded border border-[#081229] bg-[#E84545]  transition duration-500'>
+                <div className='space-y-4 text-center p-5 py-10 rounded border border-[#081229] cmn-gradient-one  transition duration-500'>
                     <FaPhone className='mx-auto text-2xl'></FaPhone>
                     <p>+880170678-5160</p>
                 </div>
-                <div className='space-y-4 text-center p-5 py-10 rounded border border-[#081229] bg-[#E84545]  transition duration-500'>
-                    <FaMailBulk className='mx-auto text-2xl'></FaMailBulk>
+                <div className='space-y-4 text-center p-5 py-10 rounded border border-[#081229] cmn-gradient-one  transition duration-500'>
+                    <FaMailBulk className='mx-auto text-2xl cmn-clr-one'></FaMailBulk>
                     <p>utsho926@gmail.com</p>
                 </div>
             </div>

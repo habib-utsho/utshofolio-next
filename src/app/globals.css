@@ -162,6 +162,16 @@
 .my-clr-one{
   color: #E84545;
 }
+.my-clr-two{
+  @apply text-purple-500
+}
+
+.cmn-gradient-one{
+  @apply  bg-gradient-to-tr from-purple-500  via-indigo-400 to-blue-500
+}
+.gradient-text{
+  @apply  bg-clip-text text-transparent bg-gradient-to-tr from-purple-500  via-indigo-400 to-blue-500
+}
 
 /* my inp */
 .my-inp{
