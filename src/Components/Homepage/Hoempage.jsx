@@ -2,9 +2,9 @@
 import Image from 'next/image';
 import React from 'react';
 import utsho from '/public/assets/img/utsho.jpg'
-import loveCursor from '/public/assets/img/loveCursor.png'
 import CountUp from 'react-countup';
 import Link from 'next/link';
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 
 const Hoempage = () => {
@@ -12,7 +12,12 @@ const Hoempage = () => {
         <div className='min-h-screen py-8 md:py-2 pb-16 md:pb-2 px-6 md:px-2 flex flex-col items-center justify-center'>
             <div className='text-white text-center space-y-5'>
                 {/* Custom cursor is not working */}
-                <figure className='h-[300px] w-[300px] mx-auto relative utshoProPic group overflow-hidden border-2 border-indigo-500 rounded-xl' style={{ cursor: `url(${loveCursor}), auto` }}>
+                <figure className='h-[300px] w-[300px] mx-auto relative utshoProPic group overflow-hidden border-2 border-indigo-500 rounded-xl transition'>
+                    <div className='z-40 absolute left-1/2 -translate-x-1/2 -bottom-10 group-hover:bottom-4 transition-all duration-500 opacity-0 group-hover:opacity-100 px-4 py-2 cmn-gradient-one flex gap-4 rounded'>
+                        <span className='cursor-pointer text-xl hover:scale-110 text-white transition'><Link href={'https://www.linkedin.com/in/source-code007/'} target='_blank'><FaLinkedin></FaLinkedin></Link></span>
+                        <span className='cursor-pointer text-xl hover:scale-110 text-white transition'><Link href={'https://www.facebook.com/UtshoBhai007'} target='_blank'><FaFacebook></FaFacebook></Link></span>
+                        <span className='cursor-pointer text-xl hover:scale-110 text-white transition'><Link href={'https://github.com/Source-Code-007'} target='_blank'><FaGithub></FaGithub></Link></span>
+                    </div>
                     <Image src={utsho} alt='Ahashan Habib Utsho' fill={true} className='group-hover:scale-105 transition duration-500'></Image>
                 </figure>
                 <h2 className='my-title gradient-text'>Ahashan Habib Utsho</h2>
