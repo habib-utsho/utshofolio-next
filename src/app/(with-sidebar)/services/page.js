@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
-import { FaAccusoft, FaAdjust, FaFunnelDollar, FaWeebly } from 'react-icons/fa';
-
+import {  FaWeebly } from 'react-icons/fa';
+import { SiAntdesign, SiFrontendmentor, SiGoogleoptimize } from "react-icons/si";
+import { ImStarFull } from "react-icons/im";
 
 const ServicesPage = () => {
     return (
@@ -50,7 +51,7 @@ const ServicesPage = () => {
                 </div>
 
                 <div className='p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl'>
-                    <span className='w-1/12 text-3xl text-[#E84545]'><FaAccusoft></FaAccusoft> </span>
+                    <span className='w-1/12 text-3xl text-[#E84545]'><SiAntdesign></SiAntdesign> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Design strategy</h2>
                         <p className='text-slate-300'> I am a design strategist who understands the business goals, target audience, and technical constraints of websites. I develop plans for the overall look and feel of websites that are effective and purposeful.</p>
@@ -58,7 +59,7 @@ const ServicesPage = () => {
                 </div>
 
                 <div className='p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl'>
-                    <span className='w-1/12 text-3xl text-[#E84545]'><FaAccusoft></FaAccusoft> </span>
+                    <span className='w-1/12 text-3xl text-[#E84545]'><SiFrontendmentor></SiFrontendmentor> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Frontend Development</h2>
                         <p className='text-slate-300'>I am a proficient frontend developer with experience in Tailwind, Bootstrap, React, Framer Motion. I create visually appealing and user-friendly websites with performance optimization and accessibility in mind.</p>
@@ -66,7 +67,7 @@ const ServicesPage = () => {
                 </div>
 
                 <div className='p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl'>
-                    <span className='w-1/12 text-3xl text-[#E84545]'><FaAdjust></FaAdjust> </span>
+                    <span className='w-1/12 text-3xl text-[#E84545]'><SiGoogleoptimize></SiGoogleoptimize> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Performance Optimization</h2>
                         <p className='text-slate-300'>I am a performance optimization specialist who can improve the speed and performance of websites. I optimize the code, images, and other resources to make websites load faster and rank better in search engines.</p>
@@ -74,7 +75,7 @@ const ServicesPage = () => {
                 </div>
 
                 <div className='p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl'>
-                    <span className='w-1/12 text-3xl text-[#E84545]'><FaFunnelDollar></FaFunnelDollar> </span>
+                    <span className='w-1/12 text-3xl text-[#E84545]'><ImStarFull></ImStarFull> </span>
                     <div className='space-y-3 flex-1'>
                         <h2 className='my-subtitle'>Fullstack Development</h2>
                         <p className='text-slate-300'>I am a fullstack developer with experience in developing both the frontend and backend of websites using the MERN stack. I am also experienced in performance optimization and security.</p>

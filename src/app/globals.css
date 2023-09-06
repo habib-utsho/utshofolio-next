@@ -107,7 +107,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(-300vh) scale(2);
+    transform: translateY(-300vh) scale(3);
     opacity: 0;
   }
 }
@@ -175,7 +175,7 @@
 
 /* my inp */
 .my-inp{
-  @apply block w-full p-3 bg-[#081229] text-slate-200 placeholder:text-slate-600 shadow-inner shadow-slate-800 border-none rounded focus:outline-none
+  @apply block w-full p-3 bg-[#081229] text-slate-200 placeholder:text-slate-600 shadow-inner shadow-slate-800 border-none rounded focus:outline-none focus:shadow-slate-500
 }
 
 /* My btn */

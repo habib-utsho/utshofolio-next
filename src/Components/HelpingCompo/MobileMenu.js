@@ -1,6 +1,9 @@
 import NavLink from '@/Components/HelpingCompo/NavLink';
 import React from 'react';
-import { FaBlog, FaFax, FaHome, FaProjectDiagram, FaServicestack, FaUser, FaVoicemail } from "react-icons/fa";
+import { FaHome, FaServicestack, FaUser } from "react-icons/fa";
+import { BsTrophyFill } from "react-icons/bs";
+import { FaMessage } from "react-icons/fa6";
+import { ImBlog } from "react-icons/im";
 
 const MobileMenu = () => {
     return (
@@ -9,9 +12,9 @@ const MobileMenu = () => {
                 <li className='flex-1'><NavLink href={'/'}><FaHome></FaHome></NavLink></li>
                 <li className='flex-1'><NavLink href={'/about'}><FaUser></FaUser></NavLink></li>
                 <li className='flex-1'><NavLink href={'/services'}><FaServicestack></FaServicestack></NavLink></li>
-                <li className='flex-1'><NavLink href={'/projects'}><FaProjectDiagram></FaProjectDiagram></NavLink></li>
-                <li className='flex-1'><NavLink href={'/article'}><FaBlog></FaBlog> </NavLink></li>
-                <li className='flex-1'><NavLink href={'/contact'}><FaFax></FaFax> </NavLink></li>
+                <li className='flex-1'><NavLink href={'/projects'}><BsTrophyFill></BsTrophyFill></NavLink></li>
+                <li className='flex-1'><NavLink href={'/article'}><ImBlog></ImBlog> </NavLink></li>
+                <li className='flex-1'><NavLink href={'/contact'}><FaMessage></FaMessage> </NavLink></li>
             </ul>
         </div>
     );

@@ -1,6 +1,9 @@
 import NavLink from '@/Components/HelpingCompo/NavLink';
 import React from 'react';
-import { FaBlog, FaFax, FaHome, FaProjectDiagram, FaServicestack, FaUser, FaVoicemail } from "react-icons/fa";
+import { FaHome, FaServicestack, FaUser } from "react-icons/fa";
+import { BsTrophyFill } from "react-icons/bs";
+import { FaMessage } from "react-icons/fa6";
+import { ImBlog } from "react-icons/im";
 
 const DesktopSidebar = () => {
     return (
@@ -8,9 +11,9 @@ const DesktopSidebar = () => {
         <li><NavLink href={'/'}><FaHome></FaHome></NavLink></li>
         <li><NavLink href={'/about'}><FaUser></FaUser></NavLink></li>
         <li><NavLink href={'/services'}><FaServicestack></FaServicestack></NavLink></li>
-        <li><NavLink href={'/projects'}><FaProjectDiagram></FaProjectDiagram></NavLink></li>
-        <li><NavLink href={'/article'}><FaBlog></FaBlog></NavLink></li>
-        <li><NavLink href={'/contact'}><FaFax></FaFax> </NavLink></li>
+        <li><NavLink href={'/projects'}><BsTrophyFill></BsTrophyFill></NavLink></li>
+        <li><NavLink href={'/article'}><ImBlog></ImBlog></NavLink></li>
+        <li><NavLink href={'/contact'}><FaMessage></FaMessage> </NavLink></li>
     </ul>
     );
 };

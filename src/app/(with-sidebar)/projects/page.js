@@ -172,7 +172,7 @@ const ProjectsPage = () => {
                                                 <div>
                                                     <h3 className='my-subtitle gradient-text'>Technologies</h3>
                                                     <div className='my-2 flex gap-2 flex-wrap'>
-                                                        {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
+                                                        {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-white text-white bg-opacity-10 rounded'>{tool}</span>)}
                                                     </div>
                                                 </div>
                                                 <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
@@ -204,7 +204,7 @@ const ProjectsPage = () => {
                                                     <div>
                                                         <h3 className='my-subtitle gradient-text'>Technologies</h3>
                                                         <div className='my-2 flex gap-2 flex-wrap'>
-                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
+                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-white text-white bg-opacity-10 rounded'>{tool}</span>)}
                                                         </div>
                                                     </div>
                                                     <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>
@@ -235,7 +235,7 @@ const ProjectsPage = () => {
                                                     <div>
                                                         <h3 className='my-subtitle gradient-text'>Technologies</h3>
                                                         <div className='my-2 flex gap-2 flex-wrap'>
-                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-orange-500 text-orange-600 bg-opacity-10 rounded'>{tool}</span>)}
+                                                            {tools.map((tool, ind) => <span key={ind} className='px-5 py-2 bg-white text-white bg-opacity-10 rounded'>{tool}</span>)}
                                                         </div>
                                                     </div>
                                                     <button className='my-btn-one'> <Link target='_blank' href={liveLink}>Live link</Link> </button>

@@ -18,6 +18,8 @@ const AboutPage = () => {
                                 1000, // wait 1s before replacing "Mice" with "Hamsters"
                                 '',
                                 1000,
+                                'Fullstack development',
+                                1000,
                                 'Performance optimization',
                                 1000,
                                 'Unique design pattern',
@@ -77,15 +79,15 @@ const AboutPage = () => {
                     {/* Introduction */}
                     <div className='space-y-2'>
                         <h2 className='my-title gradient-text'>Introduction</h2>
-                        <p>
-                            Web developer by day, code wizard by night. I bring websites to life with a sprinkle of magic and a dash of caffeine. Armed with a keyboard and a wicked sense of humor, I turn complex problems into digital wonders. If you can dream it, I can code it and maybe throw in a few jokes along the way. So buckle up and let{"'"}s embark on a hilarious journey through the world of web development together! Trust me, your website will thank you and maybe even crack a smile.</p>
+                        <p className='leading-loose text-slate-200'>
+                        Hello! I{"'"}m a passionate web developer with a love for crafting digital experiences. When I{"'"}m not coding, you can often find me indulging in my other passions – watching movies and series, listening to music, and diving into a good book. Let{"'"}s explore the web together!</p>
                     </div>
 
                     {/* About me */}
                     <div className='my-8 space-y-5'>
                         <div className='space-y-2'>
                             <h2 className='my-title gradient-text'>About me</h2>
-                            <p>I am a passionate web developer with a focus on the MERN stack. I love building beautiful and functional websites and applications that make people{"'"}s lives easier. I am currently studying Computer Science at Dhaka International University, where I am learning the latest web development technologies. I am also an active member of the web development community, and I enjoy sharing my knowledge and skills with others.</p>
+                            <p className='leading-loose text-slate-200'>I am a passionate web developer with a focus on the MERN stack. I love building beautiful and functional websites and applications that make people{"'"}s lives easier. I am currently studying Computer Science at Dhaka International University, where I am learning the latest web development technologies. I am also an active member of the web development community, and I enjoy sharing my knowledge and skills with others.</p>
                         </div>
                     </div>
 
@@ -93,7 +95,7 @@ const AboutPage = () => {
                     <div className='my-8 space-y-5'>
                         <div className='space-y-2'>
                             <h2 className='my-title gradient-text'>Approach and Philosophy</h2>
-                            <p>My approach to web development is driven by a user-centric focus, attention to detail, and a commitment to clean and efficient code. I believe in responsive design, continuous learning, and fostering collaborative partnerships with clients. Innovation and creativity are at the core of my work, ensuring unique and exceptional digital experiences. Let{"'"}s create something remarkable together!.</p>
+                            <p className='leading-loose text-slate-200'>My approach to web development is driven by a user-centric focus, attention to detail, and a commitment to clean and efficient code. I believe in responsive design, continuous learning, and fostering collaborative partnerships with clients. Innovation and creativity are at the core of my work, ensuring unique and exceptional digital experiences. Let{"'"}s create something remarkable together!.</p>
                         </div>
                     </div>
 
