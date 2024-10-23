@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import utsho from "/public/assets/img/utsho.jpg";
+import utsho from "@/assets/img/utsho.jpg";
 import CountUp from "react-countup";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
