@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import logo from "@/assets/img/logo.png";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { TrophyOutlined } from "@ant-design/icons";
+import {
+  TrophyOutlined,
+  ProjectOutlined,
+  ExperimentOutlined,
+  StarOutlined,
+} from "@ant-design/icons";
 
 const { Sider } = Layout;
 
@@ -19,12 +24,25 @@ const Sidebar = () => {
       label: "Projects",
       onClick: () => router.push("/habib-utsho-dashboard"),
     },
+    {
+      key: "/habib-utsho-dashboard/project",
+      icon: <ProjectOutlined />,
+      label: "Project",
+      onClick: () => router.push("/habib-utsho-dashboard/project"),
+    },
+    {
+      key: "/habib-utsho-dashboard/experience",
+      icon: <ExperimentOutlined />,
+      label: "Experience",
+      onClick: () => router.push("/habib-utsho-dashboard/experience"),
+    },
+    {
+      key: "/habib-utsho-dashboard/skill",
+      icon: <StarOutlined />,
+      label: "Skills",
+      onClick: () => router.push("/habib-utsho-dashboard/skill"),
+    },
   ];
-
-  // Adjust selectedKeys to handle pathname correctly
-  const selectedKey = menuItems.find((item) =>
-    pathname.startsWith(item.key)
-  )?.key;
 
   return (
     <Sider
@@ -47,14 +65,14 @@ const Sidebar = () => {
       <Menu
         theme="dark"
         mode="inline"
-        selectedKeys={[selectedKey]} // Ensure this key matches the correct route
-        items={menuItems.map((item) => ({
-          key: item.key,
-          icon: item.icon,
-          label: collapsed ? item.icon : item.label,
-          onClick: item.onClick,
-        }))}
-      />
+        selectedKeys={[pathname]} // Ensure this key matches the correct route
+      >
+        {menuItems.map((item) => (
+          <Menu.Item key={item.key} icon={item.icon} onClick={item.onClick}>
+            {collapsed ? item.icon : item.label}
+          </Menu.Item>
+        ))}
+      </Menu>
     </Sider>
   );
 };
