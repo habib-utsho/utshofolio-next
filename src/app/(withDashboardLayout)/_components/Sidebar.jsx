@@ -21,7 +21,7 @@ const Sidebar = () => {
     {
       key: "/habib-utsho-dashboard",
       icon: <TrophyOutlined />,
-      label: "Projects",
+      label: "Home",
       onClick: () => router.push("/habib-utsho-dashboard"),
     },
     {
@@ -66,13 +66,13 @@ const Sidebar = () => {
         theme="dark"
         mode="inline"
         selectedKeys={[pathname]} // Ensure this key matches the correct route
-      >
-        {menuItems.map((item) => (
+        items={menuItems}
+      />
+      {/* {menuItems.map((item) => (
           <Menu.Item key={item.key} icon={item.icon} onClick={item.onClick}>
             {collapsed ? item.icon : item.label}
           </Menu.Item>
-        ))}
-      </Menu>
+        ))} */}
     </Sider>
   );
 };

@@ -25,15 +25,25 @@ const Project = () => {
     useDeleteProject();
   const columns = [
     {
-      title: "Logo",
-      dataIndex: "logo",
-      render: (logo, record) => (
-        <Image src={logo} alt={record?.title} width={40} height={40} />
+      title: "Project",
+      render: (_, record) => (
+        <div className="flex items-center gap-2">
+          <Image
+            src={record?.logo}
+            alt={record?.title}
+            width={40}
+            height={40}
+          />
+          <p>{record?.title}</p>
+        </div>
       ),
     },
     {
-      title: "Title",
-      dataIndex: "title",
+      title: "Banner",
+      dataIndex: "banner",
+      render: (banner) => (
+        <Image src={banner} alt={banner} width={40} height={40} />
+      ),
     },
     {
       title: "Description",

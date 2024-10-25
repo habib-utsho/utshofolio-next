@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "react/prop-types": "off" // If you are using PropTypes
+  }
 }

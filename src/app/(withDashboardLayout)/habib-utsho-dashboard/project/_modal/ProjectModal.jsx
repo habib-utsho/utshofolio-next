@@ -1,8 +1,10 @@
-import { Modal, Form, Button, message, Upload, Switch } from "antd";
+import { Modal, Form, Button, message, Upload, Switch, Tag, Input } from "antd";
 import { useCreateProject } from "@/hooks/project.hook"; // Adjust import based on your file structure
 import MyInp from "@/ui/Form/MyInp";
 import { UploadOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import "react-quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
 
 const ProjectModal = ({ visible, setVisible }) => {
   const [form] = Form.useForm();
@@ -11,17 +13,50 @@ const ProjectModal = ({ visible, setVisible }) => {
     logo: [],
     banner: [],
   });
+  const [projectDescription, setProjectDescription] = useState("");
+  const toolbarOptions = [
+    [{ header: [1, 2, false] }],
+    ["bold", "italic", "underline"],
+    ["blockquote", "code-block"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ color: [] }, { background: [] }], // Dropdown for color
+    ["link", "image"],
+    ["clean"], // Remove formatting button
+  ];
+
+  // Technologies ###
+  const [selectedTechnologiesValues, setSelectedTechnologiesValues] = useState(
+    []
+  );
+  const [technologiesInpValue, setTechnologiesInpValue] = useState("");
+  const handleAddTechnologies = (e) => {
+    e.preventDefault();
+    const trimmedValue = technologiesInpValue.trim();
+    if (trimmedValue && !selectedTechnologiesValues.includes(trimmedValue)) {
+      setSelectedTechnologiesValues([
+        ...selectedTechnologiesValues,
+        trimmedValue,
+      ]);
+      setTechnologiesInpValue(""); // Clear input field
+    }
+  };
+  const handleRemoveTechnologies = (removedValue) => {
+    const updatedValues = selectedTechnologiesValues.filter(
+      (value) => value !== removedValue
+    );
+    setSelectedTechnologiesValues(updatedValues);
+  };
 
   const createProjectHandler = async (values) => {
     try {
+      values.technologies = selectedTechnologiesValues; // Add technologies to the form data
+      values.description = projectDescription;
       const formData = new FormData();
 
-      values.forEach((value, key) => {
-        formData.append(key, value);
-      });
+      formData.append("data", JSON.stringify(values));
 
       if (
-        fileList.logo.length > 0 &&
+        fileList.logo?.length > 0 &&
         fileList.logo[0]?.originFileObj &&
         fileList.banner[0]?.originFileObj
       ) {
@@ -29,10 +64,25 @@ const ProjectModal = ({ visible, setVisible }) => {
         formData.append("banner", fileList.banner[0]?.originFileObj);
       }
 
-      createProject(formData);
-      form.resetFields();
-      setVisible(false);
+      // console.log(values);
+      // console.log(formData.get("data"));
+      // console.log(formData.get("logo"));
+      // console.log(formData.get("banner"));
+
+      createProject(formData, {
+        onSuccess: () => {
+          message.success("Project created successfully");
+          // form.resetFields();
+          // setVisible(false);
+          // setFileList({
+          //   logo: [],
+          //   banner: [],
+          // });
+          // setProjectDescription("");
+        },
+      });
     } catch (error) {
+      console.log(error, "error");
       message.error("Failed to create project");
     }
   };
@@ -41,7 +91,7 @@ const ProjectModal = ({ visible, setVisible }) => {
     <Modal
       title="Create New Project"
       width={800}
-      visible={visible}
+      open={visible}
       onCancel={() => setVisible(false)}
       footer={null}
     >
@@ -138,7 +188,7 @@ const ProjectModal = ({ visible, setVisible }) => {
           </Upload>
         </Form.Item>
 
-        <MyInp
+        {/* <MyInp
           type="textarea"
           name="description"
           label="Description"
@@ -149,7 +199,20 @@ const ProjectModal = ({ visible, setVisible }) => {
             },
           ]}
           placeholder="Enter project description"
-        />
+        /> */}
+
+        {/* Quill editor */}
+        <div className="my-2">
+          <ReactQuill
+            theme="snow"
+            value={projectDescription}
+            onChange={setProjectDescription}
+            placeholder="Enter project description"
+            modules={{
+              toolbar: toolbarOptions,
+            }}
+          />
+        </div>
 
         <MyInp
           type="select"
@@ -164,7 +227,7 @@ const ProjectModal = ({ visible, setVisible }) => {
           placeholder="Select a category"
         />
 
-        <MyInp
+        {/* <MyInp
           type="text"
           name="technologies"
           label="Technologies"
@@ -172,7 +235,47 @@ const ProjectModal = ({ visible, setVisible }) => {
             { required: true, message: "Please input the technologies used!" },
           ]}
           placeholder="Comma separated list of technologies"
-        />
+        /> */}
+        {/* Tech */}
+        <Form.Item
+          name="technologies"
+          label="Technologies"
+          rules={[
+            {
+              required: true,
+              message: "Please select at least one technology!",
+            },
+          ]}
+        >
+          <div>
+            {selectedTechnologiesValues.map((value) => (
+              <Tag
+                key={value}
+                closable
+                onClose={() => handleRemoveTechnologies(value)}
+                style={{ marginBottom: 5 }}
+              >
+                {value}
+              </Tag>
+            ))}
+            {selectedTechnologiesValues?.length > 0 && (
+              <Tag
+                className="text-white bg-danger font-semibold shadow-md mb-[5px] cursor-pointer"
+                onClick={() => setSelectedTechnologiesValues([])}
+              >
+                Clear all
+              </Tag>
+            )}
+            <Input
+              placeholder="Add a technology and press enter to add it to the list"
+              value={technologiesInpValue}
+              onChange={(e) => setTechnologiesInpValue(e.target.value)}
+              onPressEnter={handleAddTechnologies}
+              onBlur={handleAddTechnologies}
+              style={{ width: "100%" }}
+            />
+          </div>
+        </Form.Item>
 
         <Form.Item label="Featured" name={"isFeatured"}>
           <Switch

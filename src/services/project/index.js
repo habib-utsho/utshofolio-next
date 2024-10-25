@@ -6,6 +6,11 @@ import { revalidateTag } from "next/cache";
 // Create a new project
 export const createProject = async (payload) => {
   try {
+    console.log("hey");
+    console.log(payload.get("data"), "from service");
+    console.log(payload.get("logo"), "from service");
+    console.log(payload.get("banner"), "from service");
+
     const response = await axiosInstance.post(`/project`, payload, {
       headers: {
         "Content-Type": "multipart/form-data",

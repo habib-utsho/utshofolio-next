@@ -1,4 +1,10 @@
-import { createProject, deleteProject, getAllProjects, getSingleProject, updateProject } from "@/services/project";
+import {
+  createProject,
+  deleteProject,
+  getAllProjects,
+  getSingleProject,
+  updateProject,
+} from "@/services/project";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { message } from "antd";
@@ -9,7 +15,12 @@ export const useCreateProject = () => {
 
   return useMutation({
     mutationKey: ["project"],
-    mutationFn: async (payload) => await createProject(payload),
+    mutationFn: async (payload) => {
+      for (var pair of payload.entries()) {
+        console.log(pair[0] + ", " + pair[1]);
+      }
+      await createProject(payload);
+    },
     onSuccess(data) {
       if (data?.success) {
         message.success(data?.message || "Project created successfully!");
@@ -19,6 +30,7 @@ export const useCreateProject = () => {
       }
     },
     onError(error) {
+      console.log(error, "errorxxx");
       message.error(error?.message || "Failed to create project!");
     },
   });
