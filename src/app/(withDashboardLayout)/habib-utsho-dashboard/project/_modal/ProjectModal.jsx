@@ -1,34 +1,63 @@
 import { Modal, Form, Button, message, Upload, Switch, Tag, Input } from "antd";
-import { useCreateProject } from "@/hooks/project.hook"; // Adjust import based on your file structure
+import { useCreateProject, useUpdateProject } from "@/hooks/project.hook"; // Adjust import based on your file structure
 import MyInp from "@/ui/Form/MyInp";
 import { UploadOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 
-const ProjectModal = ({ visible, setVisible }) => {
-  const [form] = Form.useForm();
-  const { mutate: createProject, isPending } = useCreateProject();
-  const [fileList, setFileList] = useState({
-    logo: [],
-    banner: [],
-  });
-  const [projectDescription, setProjectDescription] = useState("");
-  const toolbarOptions = [
-    [{ header: [1, 2, false] }],
-    ["bold", "italic", "underline"],
-    ["blockquote", "code-block"],
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ color: [] }, { background: [] }], // Dropdown for color
-    ["link", "image"],
-    ["clean"], // Remove formatting button
-  ];
+const toolbarOptions = [
+  [{ header: [1, 2, false] }],
+  ["bold", "italic", "underline"],
+  ["blockquote", "code-block"],
+  [{ list: "ordered" }, { list: "bullet" }],
+  [{ color: [] }, { background: [] }], // Dropdown for color
+  ["link", "image"],
+  ["clean"], // Remove formatting button
+];
 
-  // Technologies ###
+const ProjectModal = ({
+  visible,
+  setVisible,
+  editingProject,
+  setEditingProject,
+}) => {
+  const [form] = Form.useForm();
+  const { mutate: createProject, isPending: isLoadingCreateProject } =
+    useCreateProject();
+  const { mutate: updateProject, isPending: isLoadingUpdateProject } =
+    useUpdateProject();
+  const [fileList, setFileList] = useState({ logo: [], banner: [] });
+  const [projectDescription, setProjectDescription] = useState("");
+
+  // Technologies
   const [selectedTechnologiesValues, setSelectedTechnologiesValues] = useState(
     []
   );
   const [technologiesInpValue, setTechnologiesInpValue] = useState("");
+
+  // Tags
+  const [selectedTagsValues, setSelectedTagsValues] = useState([]);
+  const [tagsInpValue, setTagsInpValue] = useState("");
+
+  useEffect(() => {
+    if (editingProject) {
+      form.setFieldsValue({
+        ...editingProject,
+        isFeatured: editingProject.isFeatured,
+        technologies: editingProject.technologies,
+        tags: editingProject.tags,
+      });
+      setProjectDescription(editingProject?.description || "");
+      setSelectedTechnologiesValues(editingProject?.technologies || []);
+      setSelectedTagsValues(editingProject?.tags || []);
+      setFileList({
+        logo: editingProject.logo ? [{ url: editingProject.logo }] : [],
+        banner: editingProject.banner ? [{ url: editingProject.banner }] : [],
+      });
+    }
+  }, [editingProject, form]);
+
   const handleAddTechnologies = (e) => {
     e.preventDefault();
     const trimmedValue = technologiesInpValue.trim();
@@ -37,53 +66,92 @@ const ProjectModal = ({ visible, setVisible }) => {
         ...selectedTechnologiesValues,
         trimmedValue,
       ]);
-      setTechnologiesInpValue(""); // Clear input field
+      setTechnologiesInpValue("");
     }
   };
+
   const handleRemoveTechnologies = (removedValue) => {
-    const updatedValues = selectedTechnologiesValues.filter(
-      (value) => value !== removedValue
+    setSelectedTechnologiesValues(
+      selectedTechnologiesValues.filter((value) => value !== removedValue)
     );
-    setSelectedTechnologiesValues(updatedValues);
   };
 
-  const createProjectHandler = async (values) => {
-    try {
-      values.technologies = selectedTechnologiesValues; // Add technologies to the form data
-      values.description = projectDescription;
-      const formData = new FormData();
+  const handleAddTags = (e) => {
+    e.preventDefault();
+    const trimmedValue = tagsInpValue.trim();
+    if (trimmedValue && !selectedTagsValues.includes(trimmedValue)) {
+      setSelectedTagsValues([...selectedTagsValues, trimmedValue]);
+      setTagsInpValue("");
+    }
+  };
 
+  const handleRemoveTags = (removedValue) => {
+    setSelectedTagsValues(
+      selectedTagsValues.filter((value) => value !== removedValue)
+    );
+  };
+
+  const handleCreateUpdateProject = async (values) => {
+    try {
+      values.technologies = selectedTechnologiesValues;
+      values.tags = selectedTagsValues;
+      values.description = projectDescription;
+
+      const formData = new FormData();
       formData.append("data", JSON.stringify(values));
 
+      // Validate file uploads
       if (
-        fileList.logo?.length > 0 &&
-        fileList.logo[0]?.originFileObj &&
-        fileList.banner[0]?.originFileObj
+        !fileList.logo ||
+        fileList.logo?.length === 0 ||
+        !fileList.banner ||
+        fileList.banner?.length === 0
       ) {
-        formData.append("logo", fileList.logo[0]?.originFileObj);
-        formData.append("banner", fileList.banner[0]?.originFileObj);
+        message.error("Please upload a logo and banner");
+        return;
       }
 
-      // console.log(values);
-      // console.log(formData.get("data"));
-      // console.log(formData.get("logo"));
-      // console.log(formData.get("banner"));
+      // Append files to FormData with checks
+      if (
+        fileList.logo &&
+        fileList.logo?.length > 0 &&
+        fileList.logo?.[0]?.originFileObj
+      ) {
+        console.log("hi");
+        formData.append("logo", fileList.logo?.[0]?.originFileObj);
+      }
+      if (
+        fileList.banner &&
+        fileList.banner?.length > 0 &&
+        fileList.banner?.[0]?.originFileObj
+      ) {
+        formData.append("banner", fileList.banner?.[0].originFileObj);
+      }
 
-      createProject(formData, {
-        onSuccess: () => {
-          message.success("Project created successfully");
-          // form.resetFields();
-          // setVisible(false);
-          // setFileList({
-          //   logo: [],
-          //   banner: [],
-          // });
-          // setProjectDescription("");
+      const action = editingProject ? updateProject : createProject;
+      const onSuccessMessage = editingProject
+        ? "Project updated successfully"
+        : "Project created successfully";
+      const payload = editingProject
+        ? { payload: formData, id: editingProject._id }
+        : formData;
+
+      action(payload, {
+        onSuccess: (res) => {
+          message.success(res?.message || onSuccessMessage);
+          form.resetFields();
+          setVisible(false);
+          setFileList({ logo: [], banner: [] });
+          setProjectDescription("");
+          setSelectedTechnologiesValues([]);
+          setSelectedTagsValues([]);
+          if (editingProject) {
+            setEditingProject(null);
+          }
         },
       });
     } catch (error) {
-      console.log(error, "error");
-      message.error("Failed to create project");
+      message.error(error?.message || "Failed to process project");
     }
   };
 
@@ -98,7 +166,7 @@ const ProjectModal = ({ visible, setVisible }) => {
       <Form
         form={form}
         layout="vertical"
-        onFinish={createProjectHandler} // Fixed the event handler to use onFinish
+        onFinish={handleCreateUpdateProject} // Fixed the event handler to use onFinish
       >
         <MyInp
           type="text"
@@ -110,83 +178,85 @@ const ProjectModal = ({ visible, setVisible }) => {
           placeholder="Enter project title"
         />
 
-        {/* Logo upload */}
-        <Form.Item
-          label="Logo"
-          valuePropName="fileList"
-          getValueFromEvent={(e) => {
-            if (Array.isArray(e)) {
-              return e;
-            }
-            return e && e.fileList;
-          }}
-        >
-          <Upload
-            listType="picture-card"
-            fileList={fileList.logo}
-            onChange={({ fileList: newFileList }) =>
-              setFileList((prev) => ({ ...prev, logo: newFileList }))
-            }
-            customRequest={({ file, onSuccess }) => {
-              const reader = new FileReader();
-              reader.onload = () => {
-                onSuccess({ url: reader.result }, file);
-              };
-              reader.readAsDataURL(file);
+        <div className="flex items-center gap-4">
+          {/* Logo upload */}
+          <Form.Item
+            label="Logo"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => {
+              if (Array.isArray(e)) {
+                return e;
+              }
+              return e && e.fileList;
             }}
-            showUploadList={{
-              showPreviewIcon: true,
-              showRemoveIcon: true,
-            }}
-            accept="image/*"
           >
-            {fileList.logo.length >= 1 ? null : (
-              <div>
-                <UploadOutlined />
-                <div>Upload Logo</div>
-              </div>
-            )}
-          </Upload>
-        </Form.Item>
+            <Upload
+              listType="picture-card"
+              fileList={fileList.logo}
+              onChange={({ fileList: newFileList }) =>
+                setFileList((prev) => ({ ...prev, logo: newFileList }))
+              }
+              customRequest={({ file, onSuccess }) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                  onSuccess({ url: reader.result }, file);
+                };
+                reader.readAsDataURL(file);
+              }}
+              showUploadList={{
+                showPreviewIcon: true,
+                showRemoveIcon: true,
+              }}
+              accept="image/*"
+            >
+              {fileList.logo.length >= 1 ? null : (
+                <div>
+                  <UploadOutlined />
+                  <div>Upload Logo</div>
+                </div>
+              )}
+            </Upload>
+          </Form.Item>
 
-        {/* Banner upload */}
-        <Form.Item
-          label="Banner"
-          valuePropName="fileList"
-          getValueFromEvent={(e) => {
-            if (Array.isArray(e)) {
-              return e;
-            }
-            return e && e.fileList;
-          }}
-        >
-          <Upload
-            listType="picture-card"
-            fileList={fileList.banner}
-            onChange={({ fileList: newFileList }) =>
-              setFileList((prev) => ({ ...prev, banner: newFileList }))
-            }
-            customRequest={({ file, onSuccess }) => {
-              const reader = new FileReader();
-              reader.onload = () => {
-                onSuccess({ url: reader.result }, file);
-              };
-              reader.readAsDataURL(file);
+          {/* Banner upload */}
+          <Form.Item
+            label="Banner"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => {
+              if (Array.isArray(e)) {
+                return e;
+              }
+              return e && e.fileList;
             }}
-            showUploadList={{
-              showPreviewIcon: true,
-              showRemoveIcon: true,
-            }}
-            accept="image/*"
           >
-            {fileList.banner.length >= 1 ? null : (
-              <div>
-                <UploadOutlined />
-                <div>Upload Banner</div>
-              </div>
-            )}
-          </Upload>
-        </Form.Item>
+            <Upload
+              listType="picture-card"
+              fileList={fileList.banner}
+              onChange={({ fileList: newFileList }) =>
+                setFileList((prev) => ({ ...prev, banner: newFileList }))
+              }
+              customRequest={({ file, onSuccess }) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                  onSuccess({ url: reader.result }, file);
+                };
+                reader.readAsDataURL(file);
+              }}
+              showUploadList={{
+                showPreviewIcon: true,
+                showRemoveIcon: true,
+              }}
+              accept="image/*"
+            >
+              {fileList.banner.length >= 1 ? null : (
+                <div>
+                  <UploadOutlined />
+                  <div>Upload Banner</div>
+                </div>
+              )}
+            </Upload>
+          </Form.Item>
+        </div>
 
         {/* <MyInp
           type="textarea"
@@ -227,15 +297,28 @@ const ProjectModal = ({ visible, setVisible }) => {
           placeholder="Select a category"
         />
 
-        {/* <MyInp
+        {/* Demo URL */}
+        <MyInp
           type="text"
-          name="technologies"
-          label="Technologies"
-          rules={[
-            { required: true, message: "Please input the technologies used!" },
-          ]}
-          placeholder="Comma separated list of technologies"
-        /> */}
+          name="demoUrl"
+          label="Live URL"
+          rules={[{ required: true, message: "Please input the Live URL!" }]}
+          placeholder="Enter project Live URL"
+        />
+        {/* Github frontend */}
+        <MyInp
+          type="text"
+          name={["githubUrl", "frontend"]}
+          label="Frontend GitHub URL"
+          placeholder="Enter frontend GitHub URL"
+        />
+        <MyInp
+          type="text"
+          name={["githubUrl", "backend"]}
+          label="Backend GitHub URL"
+          placeholder="Enter backend GitHub URL"
+        />
+
         {/* Tech */}
         <Form.Item
           name="technologies"
@@ -277,6 +360,38 @@ const ProjectModal = ({ visible, setVisible }) => {
           </div>
         </Form.Item>
 
+        {/* Tags */}
+        <Form.Item name="tags" label="Tags">
+          <div>
+            {selectedTagsValues.map((value) => (
+              <Tag
+                key={value}
+                closable
+                onClose={() => handleRemoveTags(value)}
+                style={{ marginBottom: 5 }}
+              >
+                {value}
+              </Tag>
+            ))}
+            {selectedTagsValues?.length > 0 && (
+              <Tag
+                className="text-white bg-danger font-semibold shadow-md mb-[5px] cursor-pointer"
+                onClick={() => setSelectedTagsValues([])}
+              >
+                Clear all
+              </Tag>
+            )}
+            <Input
+              placeholder="Add a technology and press enter to add it to the list"
+              value={tagsInpValue}
+              onChange={(e) => setTagsInpValue(e.target.value)}
+              onPressEnter={handleAddTags}
+              onBlur={handleAddTags}
+              style={{ width: "100%" }}
+            />
+          </div>
+        </Form.Item>
+
         <Form.Item label="Featured" name={"isFeatured"}>
           <Switch
             checkedChildren="Yes"
@@ -313,8 +428,12 @@ const ProjectModal = ({ visible, setVisible }) => {
           placeholder="Select role"
         />
 
-        <Button loading={isPending} type="primary" htmlType="submit">
-          Create Project
+        <Button
+          loading={isLoadingCreateProject || isLoadingUpdateProject}
+          type="primary"
+          htmlType="submit"
+        >
+          {editingProject ? "Update Project" : "Create Project"}
         </Button>
       </Form>
     </Modal>

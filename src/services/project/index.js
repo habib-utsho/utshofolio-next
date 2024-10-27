@@ -6,11 +6,6 @@ import { revalidateTag } from "next/cache";
 // Create a new project
 export const createProject = async (payload) => {
   try {
-    console.log("hey");
-    console.log(payload.get("data"), "from service");
-    console.log(payload.get("logo"), "from service");
-    console.log(payload.get("banner"), "from service");
-
     const response = await axiosInstance.post(`/project`, payload, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -18,6 +13,7 @@ export const createProject = async (payload) => {
     });
 
     revalidateTag("project"); // Update the cache tag to reflect projects
+
     return response.data;
   } catch (e) {
     throw new Error(
@@ -66,9 +62,9 @@ export const getSingleProject = async (id) => {
 };
 
 // Create update project
-export const updateProject = async ({ id, payload }) => {
+export const updateProject = async ({ id, payload: formData }) => {
   try {
-    const response = await axiosInstance.patch(`/project/${id}`, payload, {
+    const response = await axiosInstance.patch(`/project/${id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

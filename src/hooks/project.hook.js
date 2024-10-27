@@ -15,22 +15,15 @@ export const useCreateProject = () => {
 
   return useMutation({
     mutationKey: ["project"],
-    mutationFn: async (payload) => {
-      for (var pair of payload.entries()) {
-        console.log(pair[0] + ", " + pair[1]);
-      }
-      await createProject(payload);
-    },
+    mutationFn: async (payload) => await createProject(payload),
     onSuccess(data) {
       if (data?.success) {
-        message.success(data?.message || "Project created successfully!");
         queryClient.invalidateQueries({ queryKey: ["project"] });
       } else {
         message.error(data?.message || "Failed to create project!");
       }
     },
     onError(error) {
-      console.log(error, "errorxxx");
       message.error(error?.message || "Failed to create project!");
     },
   });
@@ -44,7 +37,6 @@ export const useUpdateProject = () => {
     mutationFn: async (payload) => await updateProject(payload),
     onSuccess(data) {
       if (data?.success) {
-        message.success(data?.message || "Project updated successfully!");
         queryClient.invalidateQueries({ queryKey: ["project"] });
       } else {
         message.error(data?.message || "Failed to update project!");

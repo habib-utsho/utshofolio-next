@@ -62,7 +62,14 @@ const Project = () => {
       title: "Actions",
       render: (_, record) => (
         <div className="flex gap-2">
-          <Button type="primary" icon={<EditOutlined />}>
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
+            onClick={() => {
+              setEditingProject(record);
+              setIsProjectModalVisible(true);
+            }}
+          >
             Edit
           </Button>
           <Popconfirm
@@ -73,7 +80,7 @@ const Project = () => {
             cancelText="No"
           >
             <Button
-              type="primary"
+              className="bg-red-500 border-red-500 hover:bg-red-600 hover:border-red-600"
               danger
               icon={<DeleteFilled />}
               loading={isLoadingDeleteId === record._id}

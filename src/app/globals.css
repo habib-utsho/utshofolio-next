@@ -226,3 +226,18 @@
   line-height: 1.5; /* Line height for readability */
   overflow-y: auto; /* Allow scrolling if content exceeds the height */
 }
+
+/* Priorities antD btn */
+:where(.css-dev-only-do-not-override-slf6kh).ant-btn-variant-solid {
+  background: #00abe4 !important;
+}
+.ant-tag {
+  background: #00abe4 !important;
+  color: #fff !important;
+}
+.ant-tag svg {
+  fill: #fff !important;
+}
+.ant-switch-inner-unchecked {
+  color: #081229 !important;
+}
