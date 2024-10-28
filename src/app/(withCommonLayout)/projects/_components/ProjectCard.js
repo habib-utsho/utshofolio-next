@@ -46,7 +46,7 @@ const ProjectCard = ({ project }) => {
     >
       <Link
         href={`/projects/${_id}`}
-        className="my-8 rounded-xl overflow-hidden p-6 bg-gradient-to-r from-[#1a1a2e] to-[#16213e] shadow-lg hover:shadow-2xl transition-shadow duration-300 block relative group"
+        className="my-8 rounded-xl overflow-hidden p-6 bg-gradient-to-r from-[#1a1a2e] to-secondary shadow-lg hover:shadow-white/5 transition-shadow duration-300 block relative group"
       >
         <div className="absolute top-4 -right-8 text-white/30  group-hover:text-white group-hover:right-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
           <ArrowRightOutlined className=" text-lg" /> {/* Clickable icon */}
@@ -81,23 +81,6 @@ const ProjectCard = ({ project }) => {
               <h2 className="text-xl font-bold">{title}</h2>
             </div>
 
-            {/* Technologies Section */}
-            <div>
-              <h3 className="text-lg font-semibold text-purple-300">
-                Technologies
-              </h3>
-              <div className="my-2 flex gap-2 flex-wrap">
-                {technologies.map((tech, ind) => (
-                  <Tag
-                    key={ind}
-                    className="px-4 py-1 bg-white text-gray-900 bg-opacity-20 rounded-full shadow-sm"
-                  >
-                    {tech}
-                  </Tag>
-                ))}
-              </div>
-            </div>
-
             {/* Project Info */}
             <p className="flex items-center gap-2">
               <TagsOutlined className="!text-purple-400" /> {category}
@@ -109,6 +92,25 @@ const ProjectCard = ({ project }) => {
               <ClockCircleOutlined className="!text-purple-400" /> Status:{" "}
               {status}
             </p>
+
+            {/* Technologies Section */}
+            <div className="flex gap-3 items-center flex-wrap">
+              <h3 className="text-[12px] sm:text-sm md:text-md lg:text-lg font-semibold text-purple-400">
+                Technologies Used
+              </h3>
+              <div className="my-2 flex gap-2 flex-wrap">
+                <div className="flex gap-4 flex-wrap">
+                  {technologies?.map((tech, index) => (
+                    <div
+                      key={index}
+                      className="shadow shadow-white/20 text-white rounded-lg py-1 px-2 min-w-[140px] text-center"
+                    >
+                      <span className="font-semibold">{tech}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Links Section */}
             <div className="flex flex-wrap gap-3 mt-4">

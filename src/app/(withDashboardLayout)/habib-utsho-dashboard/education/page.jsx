@@ -2,58 +2,41 @@
 
 import { Empty, Table, Popconfirm, Skeleton, Button } from "antd";
 import { DeleteFilled, EditOutlined } from "@ant-design/icons";
-import {
-  useDeleteExperience,
-  useGetAllExperiences,
-} from "@/hooks/experience.hook";
+import { useDeleteEducation, useGetAllEducation } from "@/hooks/education.hook"; // Adjust the hook path based on your file structure
 import { useState, useEffect } from "react";
-import ExperienceModal from "./_modal/ExperienceModal";
+import EducationModal from "./_modal/EducationModal"; // Adjust the modal path if necessary
 
-const Experience = () => {
+const Education = () => {
   const [pagination, setPagination] = useState({ limit: 10, page: 1 });
   const [isLoadingDeleteId, setIsLoadingDeleteId] = useState(null);
-  const [editingExperience, setEditingExperience] = useState(null);
-  const [isExperienceModalVisible, setIsExperienceModalVisible] =
-    useState(false);
+  const [editingEducation, setEditingEducation] = useState(null);
+  const [isEducationModalVisible, setIsEducationModalVisible] = useState(false);
 
-  const { data: experiences, isPending: isLoadingExperiences } =
-    useGetAllExperiences([
+  const { data: educations, isPending: isLoadingEducations } =
+    useGetAllEducation([
       { name: "limit", value: pagination.limit },
       { name: "page", value: pagination.page },
     ]);
 
-  const { mutate: deleteExperience, isPending: isLoadingDeleteExperience } =
-    useDeleteExperience();
+  const { mutate: deleteEducation, isPending: isLoadingDeleteEducation } =
+    useDeleteEducation();
 
   const columns = [
     {
-      title: "Company Name",
-      dataIndex: "companyName",
+      title: "Institute Name",
+      dataIndex: "instituteName",
     },
     {
-      title: "Role",
-      dataIndex: "role",
+      title: "Department",
+      dataIndex: "department",
     },
     {
       title: "Time Period",
       dataIndex: "timePeriod",
     },
     {
-      title: "Job Type",
-      dataIndex: "jobType",
-    },
-    {
       title: "Location",
       dataIndex: "location",
-    },
-    {
-      title: "Location",
-      dataIndex: "location",
-    },
-    {
-      title: "Is Course",
-      dataIndex: "isCourse",
-      render: (data) => <span>{data ? "Yes" : "No"}</span>,
     },
     {
       title: "Actions",
@@ -63,16 +46,16 @@ const Experience = () => {
             type="primary"
             icon={<EditOutlined />}
             onClick={() => {
-              setEditingExperience(record);
-              setIsExperienceModalVisible(true);
+              setEditingEducation(record);
+              setIsEducationModalVisible(true);
             }}
           >
             Edit
           </Button>
           <Popconfirm
-            title="Delete the experience"
-            description="Are you sure to delete this experience?"
-            onConfirm={() => handleDeleteExperience(record._id)}
+            title="Delete the education"
+            description="Are you sure to delete this education?"
+            onConfirm={() => handleDeleteEducation(record._id)}
             okText="Yes"
             cancelText="No"
           >
@@ -88,50 +71,50 @@ const Experience = () => {
     },
   ];
 
-  const handleDeleteExperience = async (id) => {
+  const handleDeleteEducation = async (id) => {
     setIsLoadingDeleteId(id);
-    deleteExperience(id);
+    deleteEducation(id);
   };
 
   useEffect(() => {
-    if (!isLoadingDeleteExperience) {
+    if (!isLoadingDeleteEducation) {
       setIsLoadingDeleteId(null);
     }
-  }, [isLoadingDeleteExperience, setIsLoadingDeleteId]);
+  }, [isLoadingDeleteEducation]);
 
   return (
     <div className="p-6">
       <div className="flex justify-between items-center gap-4 flex-wrap">
         <h2 className="font-bold text-xl md:text-2xl text-black mb-4">
-          Experiences
+          Education
         </h2>
         <Button
           type="primary"
           className="mb-4"
-          onClick={() => setIsExperienceModalVisible(true)}
+          onClick={() => setIsEducationModalVisible(true)}
         >
-          Add experience
+          Add Education
         </Button>
       </div>
 
-      {isLoadingExperiences ? (
+      {isLoadingEducations ? (
         <>
           <Skeleton active />
           <Skeleton active />
           <Skeleton active />
         </>
-      ) : experiences?.meta?.total === 0 ? (
-        <Empty description="No experiences found!" />
+      ) : educations?.meta?.total === 0 ? (
+        <Empty description="No education records found!" />
       ) : (
         <Table
           columns={columns}
-          dataSource={experiences?.data}
+          dataSource={educations?.data}
           rowKey="_id"
           pagination={{
             position: ["bottomCenter"],
             current: pagination.page,
             pageSize: pagination.limit,
-            total: experiences?.meta?.total,
+            total: educations?.meta?.total,
             onChange: (page, pageSize) =>
               setPagination({ page, limit: pageSize }),
           }}
@@ -139,14 +122,14 @@ const Experience = () => {
       )}
 
       {/* Modal */}
-      <ExperienceModal
-        visible={isExperienceModalVisible}
-        setVisible={setIsExperienceModalVisible}
-        editingExperience={editingExperience}
-        setEditingExperience={setEditingExperience}
+      <EducationModal
+        visible={isEducationModalVisible}
+        setVisible={setIsEducationModalVisible}
+        editingEducation={editingEducation}
+        setEditingEducation={setEditingEducation}
       />
     </div>
   );
 };
 
-export default Experience;
+export default Education;

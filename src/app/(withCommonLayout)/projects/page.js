@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"; // Import react-tabs components
 import "react-tabs/style/react-tabs.css"; // Basic styles for react-tabs
-import { Tag } from "antd";
+import { Empty, Skeleton, Tag } from "antd";
 import ProjectCard from "./_components/ProjectCard";
 
 const ProjectsPage = () => {
@@ -47,7 +47,8 @@ const ProjectsPage = () => {
             <Tab
               key={ind}
               className={`p-3 border border-slate-200 cursor-pointer outline-none transition font-semibold ${
-                activeTab === category && "!bg-[#081229] !text-purple-500"
+                activeTab === category &&
+                "!bg-secondary !rounded-none !text-purple-500"
               }`}
             >
               {category}
@@ -57,9 +58,29 @@ const ProjectsPage = () => {
 
         {tabPanels.map((tabPanel, index) => (
           <TabPanel key={index}>
-            {filteredProjects?.map((project, ind) => {
-              return <ProjectCard key={ind} project={project} />;
-            })}
+            {isLoadingProjects ? (
+              <div className="my-8 space-y-8">
+                {Array.from({ length: 4 })?.map((_, ind) => (
+                  <Skeleton.Button
+                    key={ind}
+                    className="rounded-xl bg-gradient-to-r from-[#1a1a2e] to-secondary/20 !w-full !h-[300px]"
+                    active
+                  />
+                ))}
+              </div>
+            ) : filteredProjects?.length === 0 ? (
+              <div className="h-[60vh] flex items-center justify-center">
+                <Empty
+                  description={
+                    <span style={{ color: "white" }}>No project found!</span>
+                  }
+                />
+              </div>
+            ) : (
+              filteredProjects?.map((project, ind) => {
+                return <ProjectCard key={ind} project={project} />;
+              })
+            )}
           </TabPanel>
         ))}
       </Tabs>

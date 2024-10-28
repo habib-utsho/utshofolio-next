@@ -1,14 +1,21 @@
 import Link from "next/link";
-import React from "react";
-import { FaWeebly } from "react-icons/fa";
-import {
-  SiAntdesign,
-  SiFrontendmentor,
-  SiGoogleoptimize,
-} from "react-icons/si";
+import React, { Suspense } from "react";
 import { ImStarFull } from "react-icons/im";
+import {
+  AntDesignOutlined,
+  CodeOutlined,
+  RocketOutlined,
+  StarOutlined,
+  ThunderboltOutlined,
+} from "@ant-design/icons";
+import { getAllTechnologies } from "@/services/technology";
 
-const ServicesPage = () => {
+const ServicesPage = async () => {
+  const technologies = await getAllTechnologies([
+    { name: "limit", value: 50000 },
+    { name: "isFeatured", value: true },
+  ]);
+
   return (
     <div className="p-6 grid grid-cols-12 gap-8 pb-16 md:pb-6 text-slate-50">
       <div className="col-span-12 md:col-span-4 space-y-3">
@@ -31,107 +38,99 @@ const ServicesPage = () => {
           <ul className="text-slate-300 space-y-3 px-6">
             <li className="list-disc">Front-end Development</li>
             <li className="list-disc">Design Strategy</li>
-            <li className="list-disc">Performance optimization</li>
-            <li className="list-disc">Fullstack development</li>
+            <li className="list-disc">Performance Optimization</li>
+            <li className="list-disc">Fullstack Development</li>
           </ul>
         </div>
 
         <div className="space-y-3 !my-10">
           <h2 className="my-subtitle">Proficient in</h2>
-          <ul className="text-slate-300 space-y-3 px-6">
-            <li className="list-disc">Next JS</li>
-            <li className="list-disc">React</li>
-            <li className="list-disc">Redux</li>
-            <li className="list-disc">Tailwind</li>
-            <li className="list-disc">Ant Design</li>
-            <li className="list-disc">ShadCn</li>
-            <li className="list-disc">Typescript</li>
-            <li className="list-disc">Express JS</li>
-            <li className="list-disc">Mongo DB</li>
-            <li className="list-disc">Mongoose</li>
-          </ul>
+          <Suspense fallback="Loading....">
+            <ul className="text-slate-300 space-y-3 px-6">
+              {technologies?.data
+                ?.sort((a, b) => a?.position - b?.position)
+                ?.map((tech, ind) => (
+                  <li key={ind} className="list-disc">
+                    {tech?.name}
+                  </li>
+                ))}
+            </ul>
+          </Suspense>
         </div>
 
-        <Link
-          href={"https://www.linkedin.com/in/source-code007/"}
-          target="_blank"
-        >
+        <Link href={"https://www.linkedin.com/in/habib-utsho"} target="_blank">
           <button className="my-btn-one">Contact with me</button>
         </Link>
       </div>
 
       <div className="col-span-12 md:col-span-8 space-y-4 flex flex-col justify-center">
-        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl">
+        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-secondary transition shadow-lg shadow-white/5 rounded hover:rounded-lg">
           <span className="w-1/12 text-3xl text-[#E84545]">
-            <FaWeebly></FaWeebly>{" "}
+            <CodeOutlined />
           </span>
           <div className="space-y-3 flex-1">
-            <h2 className="my-subtitle">Web development</h2>
+            <h2 className="my-subtitle">Web Development</h2>
             <p className="text-slate-300">
-              I am a web developer with 2+ years of experience in creating and
-              maintaining websites. I am proficient in a variety of
-              technologies, including Tailwind, Bootstrap, JavaScript, React JS,
-              Next JS, Express JS, MongoDB, and Firebase.
+              I am a web developer with over 2 years of experience in building
+              and maintaining websites. My expertise spans various technologies,
+              including Next.js, Typescript, Tailwind, Express.js, MongoDB,
+              Mongoose, Firebase and many more.
             </p>
           </div>
         </div>
 
-        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl">
+        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-secondary transition shadow-lg shadow-white/5 rounded hover:rounded-lg">
           <span className="w-1/12 text-3xl text-[#E84545]">
-            <SiAntdesign></SiAntdesign>{" "}
+            <AntDesignOutlined />
           </span>
           <div className="space-y-3 flex-1">
-            <h2 className="my-subtitle">Design strategy</h2>
+            <h2 className="my-subtitle">Design Strategy</h2>
             <p className="text-slate-300">
-              {" "}
-              I am a design strategist who understands the business goals,
-              target audience, and technical constraints of websites. I develop
-              plans for the overall look and feel of websites that are effective
-              and purposeful.
+              As a design strategist, I align business goals with audience needs
+              to craft effective web experiences. I focus on purposeful designs
+              that balance functionality with an engaging visual presence.
             </p>
           </div>
         </div>
 
-        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl">
+        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-secondary transition shadow-lg shadow-white/5 rounded hover:rounded-lg">
           <span className="w-1/12 text-3xl text-[#E84545]">
-            <SiFrontendmentor></SiFrontendmentor>{" "}
+            <RocketOutlined />
           </span>
           <div className="space-y-3 flex-1">
             <h2 className="my-subtitle">Frontend Development</h2>
             <p className="text-slate-300">
-              I am a proficient frontend developer with experience in Tailwind,
-              Bootstrap, React, Framer Motion. I create visually appealing and
-              user-friendly websites with performance optimization and
-              accessibility in mind.
+              I am skilled in frontend development, utilizing tools like
+              Tailwind, Bootstrap, React, and Framer Motion. I design intuitive,
+              accessible, and performance-optimized user interfaces.
             </p>
           </div>
         </div>
 
-        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl">
+        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-secondary transition shadow-lg shadow-white/5 rounded hover:rounded-lg">
           <span className="w-1/12 text-3xl text-[#E84545]">
-            <SiGoogleoptimize></SiGoogleoptimize>{" "}
+            <ThunderboltOutlined />
           </span>
           <div className="space-y-3 flex-1">
             <h2 className="my-subtitle">Performance Optimization</h2>
             <p className="text-slate-300">
-              I am a performance optimization specialist who can improve the
-              speed and performance of websites. I optimize the code, images,
-              and other resources to make websites load faster and rank better
-              in search engines.
+              Specializing in performance optimization, I improve site speed by
+              optimizing code, images, and resources, ensuring fast load times
+              and improved SEO rankings.
             </p>
           </div>
         </div>
 
-        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-[#081229] transition hover:rounded-xl">
+        <div className="p-5 flex flex-col sm:flex-row gap-2 items-center bg-secondary transition shadow-lg shadow-white/5 rounded hover:rounded-lg">
           <span className="w-1/12 text-3xl text-[#E84545]">
-            <ImStarFull></ImStarFull>{" "}
+            <StarOutlined />
           </span>
           <div className="space-y-3 flex-1">
             <h2 className="my-subtitle">Fullstack Development</h2>
             <p className="text-slate-300">
-              I am a fullstack developer with experience in developing both the
-              frontend and backend of websites using the MERN stack. I am also
-              experienced in performance optimization and security.
+              As a fullstack developer, I manage both frontend and backend tasks
+              using the MERN stack. My experience includes building secure,
+              performance-driven applications from end to end.
             </p>
           </div>
         </div>

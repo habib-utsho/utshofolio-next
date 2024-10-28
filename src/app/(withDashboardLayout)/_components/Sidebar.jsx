@@ -8,6 +8,7 @@ import {
   ProjectOutlined,
   ExperimentOutlined,
   StarOutlined,
+  BookOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
@@ -37,10 +38,16 @@ const Sidebar = () => {
       onClick: () => router.push("/habib-utsho-dashboard/experience"),
     },
     {
-      key: "/habib-utsho-dashboard/skill",
+      key: "/habib-utsho-dashboard/education",
+      icon: <BookOutlined />,
+      label: "Education",
+      onClick: () => router.push("/habib-utsho-dashboard/education"),
+    },
+    {
+      key: "/habib-utsho-dashboard/technology",
       icon: <StarOutlined />,
       label: "Skills",
-      onClick: () => router.push("/habib-utsho-dashboard/skill"),
+      onClick: () => router.push("/habib-utsho-dashboard/technology"),
     },
   ];
 

@@ -157,7 +157,7 @@ const ProjectModal = ({
 
   return (
     <Modal
-      title="Create New Project"
+      title={editingProject ? "Create New Project" : "Update Project"}
       width={800}
       open={visible}
       onCancel={() => setVisible(false)}

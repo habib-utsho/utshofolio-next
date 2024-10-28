@@ -1,8 +1,13 @@
 "use client";
+import { useGetAllTechnologies } from "@/hooks/technology.hook";
+import { Empty, Skeleton } from "antd";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const AboutPage = () => {
+  const { data: technologies, isPending: isLoadingTechnology } =
+    useGetAllTechnologies([{ name: "limit", value: 50000 }]);
+
   return (
     <div className="text-white">
       <div className="p-3 md:p-6">
@@ -17,7 +22,7 @@ const AboutPage = () => {
                 1000, // wait 1s before replacing "Mice" with "Hamsters"
                 "",
                 1000,
-                "Fullstack development",
+                "Full stack development",
                 1000,
                 "Performance optimization",
                 1000,
@@ -32,52 +37,81 @@ const AboutPage = () => {
         </div>
 
         {/* Technology */}
-        <div className="bg-[#081229] shadow-md shadow-[#081229] p-6 space-y-8 my-10">
-          <div className="space-y-3">
-            <h2 className="my-subtitle relative pl-3">
-              <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-              Frontend Development
-            </h2>
-            <div className="flex flex-wrap gap-4">
-              <span>Next JS</span>
-              <span>React</span>
-              <span>Redux</span>
-              <span>Typescript</span>
-              <span>Tailwind</span>
-              <span>Ant Design</span>
-              <span>ShadCn</span>
-            </div>
+        {isLoadingTechnology ? (
+          <div className="my-10">
+            <Skeleton.Button
+              active
+              className="bg-secondary  shadow-lg shadow-white/5 rounded space-y-8  !w-full !h-[416px]"
+            />
           </div>
+        ) : technologies?.meta?.total === 0 ? (
+          <Empty
+            description={
+              <span style={{ color: "white" }}>No skills found!</span>
+            }
+          />
+        ) : (
+          <div className="bg-secondary  shadow-lg shadow-white/5 rounded p-6 space-y-8 my-10">
+            <div className="space-y-3">
+              <h2 className="my-subtitle relative pl-3">
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                Frontend
+              </h2>
+              <div className="flex flex-wrap gap-4">
+                {technologies?.data
+                  ?.filter((tech) => tech?.category === "Frontend")
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((tech, ind) => (
+                    <span key={ind}>{tech?.name}</span>
+                  ))}
+              </div>
+            </div>
 
-          <div className="space-y-3">
-            <h2 className="my-subtitle relative pl-3">
-              <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-              Backend Development
-            </h2>
-            <div className="flex flex-wrap gap-4">
-              <span>Express JS</span>
-              <span>MongoDB</span>
-              <span>Mongoose</span>
+            <div className="space-y-3">
+              <h2 className="my-subtitle relative pl-3">
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                Backend
+              </h2>
+              <div className="flex flex-wrap gap-4">
+                {technologies?.data
+                  ?.filter((tech) => tech?.category === "Backend")
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((tech, ind) => (
+                    <span key={ind}>{tech?.name}</span>
+                  ))}
+              </div>
             </div>
-          </div>
+            <div className="space-y-3">
+              <h2 className="my-subtitle relative pl-3">
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                Full Stack
+              </h2>
+              <div className="flex flex-wrap gap-4">
+                {technologies?.data
+                  ?.filter((tech) => tech?.category === "Full Stack")
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((tech, ind) => (
+                    <span key={ind}>{tech?.name}</span>
+                  ))}
+              </div>
+            </div>
 
-          <div className="space-y-3">
-            <h2 className="my-subtitle relative pl-3">
-              <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-              Tools
-            </h2>
-            <div className="flex flex-row flex-wrap gap-4">
-              <span>Git</span>
-              <span>JWT</span>
-              <span>ESLint</span>
-              <span>Prettier</span>
-              <span>NPM</span>
-              <span>Postman</span>
-              <span>Figma</span>
-              <span>PSD</span>
+            <div className="space-y-3">
+              <h2 className="my-subtitle relative pl-3">
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                Tools
+              </h2>
+              <div className="flex flex-wrap gap-4">
+                {technologies?.data
+                  ?.filter((tech) => tech?.category === "Tools")
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((tech, ind) => (
+                    <span key={ind}>{tech?.name}</span>
+                  ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* About me */}
         <div className="my-8 space-y-5">

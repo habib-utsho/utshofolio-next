@@ -41,7 +41,7 @@ const ProjectDetailsClient = ({ project }) => {
       </div>
 
       {/* Project Info Section */}
-      <div className="flex items-center mb-4">
+      <div className="flex items-center !mt-10">
         <div className="relative w-20 h-20 mr-4">
           <Image
             fill
@@ -63,7 +63,7 @@ const ProjectDetailsClient = ({ project }) => {
           </p>
         </div>
       </div>
-      <h2 className="text-white text-center w-5/6 md:h-4/6 lg:w-3/6 mx-auto">
+      <h2 className="text-white text-center w-5/6 md:h-4/6 lg:w-3/6 mx-auto mt-10">
         The <span className="text-purple-500">{title}</span> project is a{" "}
         <strong className="text-purple-400">{category}</strong> initiative.{" "}
         {status === "Completed" ? (
@@ -74,37 +74,15 @@ const ProjectDetailsClient = ({ project }) => {
           </span>
         ) : (
           <span>
-            <Tag color="orange" className="mx-1">
-              {status}
-            </Tag>
-            . The project is actively being developed, and I am contributing as
-            a <strong className="text-purple-400">{role}</strong> to enhance its
+            The project is actively being developed, and I am contributing as a{" "}
+            <strong className="text-purple-400">{role}</strong> to enhance its
             features.
           </span>
         )}
       </h2>
 
-      {/* Technologies Section */}
-      <div className="my-6">
-        <div className="bg-gradient-to-r from-[#1a1a2e] to-[#16213e] p-4 rounded-lg shadow-lg">
-          <h2 className="!text-gray-100 !mb-4 text-center !text-lg font-bold">
-            Technologies Used
-          </h2>
-          <div className="flex gap-4 flex-wrap">
-            {technologies?.map((tech, index) => (
-              <div
-                key={index}
-                className="shadow shadow-white/50 text-white rounded-lg p-3 min-w-[175px] text-center"
-              >
-                <span className="font-semibold">{tech}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Action Buttons Section */}
-      <div className="flex gap-4 mb-6">
+      <div className="flex gap-4 mt-10">
         {demoUrl && (
           <Tooltip title="Live Demo" placement="top">
             <Button
@@ -143,8 +121,27 @@ const ProjectDetailsClient = ({ project }) => {
         )}
       </div>
 
+      {/* Technologies Section */}
+      <div className="mt-10">
+        <div className="bg-gradient-to-r from-[#1a1a2e] to-secondary p-4 rounded-lg shadow-lg">
+          <h2 className="!text-gray-100 !mb-4 text-center !text-lg font-bold">
+            Technologies Used
+          </h2>
+          <div className="flex gap-4 flex-wrap">
+            {technologies?.map((tech, index) => (
+              <div
+                key={index}
+                className="shadow shadow-white/50 text-white rounded-lg p-3 min-w-[175px] text-center"
+              >
+                <span className="font-semibold">{tech}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Additional Information Section */}
-      <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+      <div className="bg-gray-100 p-4 rounded-lg shadow-md mt-10">
         <Title level={4} className="text-gray-800 mb-2">
           More About This Project
         </Title>
@@ -161,22 +158,26 @@ const ProjectDetailsClient = ({ project }) => {
           >
             View Project
           </Button>
-          <Button
-            type="link"
-            href={githubUrl.frontend}
-            target="_blank"
-            icon={<GithubOutlined />}
-          >
-            View Frontend Code
-          </Button>
-          <Button
-            type="link"
-            href={githubUrl.backend}
-            target="_blank"
-            icon={<GithubOutlined />}
-          >
-            View Backend Code
-          </Button>
+          {githubUrl?.frontend && (
+            <Button
+              type="link"
+              href={githubUrl.frontend}
+              target="_blank"
+              icon={<GithubOutlined />}
+            >
+              View Frontend Code
+            </Button>
+          )}
+          {githubUrl?.frontend && (
+            <Button
+              type="link"
+              href={githubUrl.backend}
+              target="_blank"
+              icon={<GithubOutlined />}
+            >
+              View Backend Code
+            </Button>
+          )}
         </Space>
       </div>
     </div>
