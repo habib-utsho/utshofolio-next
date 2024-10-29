@@ -1,4 +1,6 @@
 "use client";
+import { useGetAllEducation } from "@/hooks/education.hook";
+import { useGetAllExperiences } from "@/hooks/experience.hook";
 import { useGetAllTechnologies } from "@/hooks/technology.hook";
 import { Empty, Skeleton } from "antd";
 import React from "react";
@@ -7,6 +9,10 @@ import { TypeAnimation } from "react-type-animation";
 const AboutPage = () => {
   const { data: technologies, isPending: isLoadingTechnology } =
     useGetAllTechnologies([{ name: "limit", value: 50000 }]);
+  const { data: experiences, isPending: isLoadingExperience } =
+    useGetAllExperiences([{ name: "limit", value: 50000 }]);
+  const { data: educations, isPending: isLoadingEducation } =
+    useGetAllEducation([{ name: "limit", value: 50000 }]);
 
   return (
     <div className="text-white">
@@ -119,11 +125,11 @@ const AboutPage = () => {
           <div className="space-y-2">
             <h2 className="my-title gradient-text">Introduction</h2>
             <p className="leading-loose text-slate-200">
-              Hello! I{"'"}m a passionate web developer with a love for crafting
-              digital experiences. When I{"'"}m not coding, you can often find
-              me indulging in my other passions – watching movies and series,
-              listening to music, and diving into a good book. Let{"'"}s explore
-              the web together!
+              Hey there! I{"'"}m a passionate web developer with a love for
+              crafting digital experiences. When I{"'"}m not coding, you can
+              often find me indulging in my other passions – watching movies and
+              series, listening to music, and diving into a good book. Let{"'"}s
+              explore the web together!
             </p>
           </div>
 
@@ -135,10 +141,11 @@ const AboutPage = () => {
                 I am a passionate web developer with a focus on the MERN stack.
                 I love building beautiful and functional websites and
                 applications that make people{"'"}s lives easier. I am currently
-                studying Computer Science at Dhaka International University,
-                where I am learning the latest web development technologies. I
-                am also an active member of the web development community, and I
-                enjoy sharing my knowledge and skills with others.
+                studying BSc in Computer Science and Engineering at Dhaka
+                International University, where I’m building a solid foundation
+                in computer science fundamentals. I am also an active member of
+                the web development community, and I enjoy sharing my knowledge
+                and skills with others.
               </p>
             </div>
           </div>
@@ -156,7 +163,7 @@ const AboutPage = () => {
                 learning, and fostering collaborative partnerships with clients.
                 Innovation and creativity are at the core of my work, ensuring
                 unique and exceptional digital experiences. Let{"'"}s create
-                something remarkable together!.
+                something remarkable together!
               </p>
             </div>
           </div>
@@ -167,46 +174,69 @@ const AboutPage = () => {
           {/* Course and experience */}
           <div>
             <h2 className="my-title relative pb-3">
-              Courses and experiences{" "}
+              Experiences
               <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
             </h2>
-
-            {/* DAP */}
-            <div className="flex items-center justify-between gap-8 !my-10">
-              <div className="space-y-3">
-                <h2 className="my-subtitle">Digital Agency Park</h2>
-                <p className="text-slate-300">Frontend developer</p>
+            {isLoadingExperience ? (
+              <div className="!my-10">
+                <Skeleton
+                  active
+                  paragraph={{ rows: 10 }}
+                  className="bg-white/5 p-5 rounded"
+                />
               </div>
-              <p className="text-slate-400">18 May, 2024 - Running</p>
-            </div>
-            {/* CodersFly */}
-            <div className="flex items-center justify-between gap-8 !my-10">
-              <div className="space-y-3">
-                <h2 className="my-subtitle">Coders Fly</h2>
-                <p className="text-slate-300">Frontend developer intern</p>
+            ) : (
+              experiences?.data
+                ?.filter((exp) => !exp?.isCourse)
+                ?.sort((a, b) => a?.position - b?.position)
+                ?.map((exp, ind) => {
+                  return (
+                    <div
+                      key={ind}
+                      className="flex items-center justify-between gap-8 !my-10"
+                    >
+                      <div className="space-y-3">
+                        <h2 className="my-subtitle">{exp?.companyName}</h2>
+                        <p className="text-slate-300">{exp?.role}</p>
+                      </div>
+                      <p className="text-slate-400">{exp?.timePeriod}</p>
+                    </div>
+                  );
+                })
+            )}
+          </div>
+          <div>
+            <h2 className="my-title relative pb-3">
+              Courses
+              <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
+            </h2>
+            {isLoadingExperience ? (
+              <div className="!my-10">
+                <Skeleton
+                  active
+                  paragraph={{ rows: 10 }}
+                  className="bg-white/5 p-5 rounded"
+                />
               </div>
-              <p className="text-slate-400">01 Oct, 2023 - 10 Jan, 2024</p>
-            </div>
-
-            {/* PH */}
-            <div className="flex items-center justify-between gap-8 !my-10">
-              <div className="space-y-3">
-                <h2 className="my-subtitle">Programming Hero</h2>
-                <p className="text-slate-300">Full stack web development</p>
-              </div>
-              <p className="text-slate-400">01 Jan, 2023 - 17 Jun, 2023</p>
-            </div>
-
-            {/* European IT */}
-            <div className="flex items-center justify-between gap-8 !my-10">
-              <div className="space-y-3">
-                <h2 className="my-subtitle">European IT solutions</h2>
-                <p className="text-slate-300">
-                  Industrial attachment with React
-                </p>
-              </div>
-              <p className="text-slate-400">01 Oct, 2022 - 30 Dec, 2022</p>
-            </div>
+            ) : (
+              experiences?.data
+                ?.filter((exp) => exp?.isCourse)
+                ?.sort((a, b) => a?.position - b?.position)
+                ?.map((exp, ind) => {
+                  return (
+                    <div
+                      key={ind}
+                      className="flex items-center justify-between gap-8 !my-10"
+                    >
+                      <div className="space-y-3">
+                        <h2 className="my-subtitle">{exp?.role}</h2>
+                        <p className="text-slate-300">{exp?.companyName}</p>
+                      </div>
+                      <p className="text-slate-400">{exp?.timePeriod}</p>
+                    </div>
+                  );
+                })
+            )}
           </div>
 
           {/* Education */}
@@ -216,23 +246,29 @@ const AboutPage = () => {
               <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
             </h2>
 
-            <div className="flex items-center justify-between gap-8 !my-10">
-              <div className="space-y-3">
-                <h2 className="my-subtitle">Dhaka International University</h2>
-                <p className="text-slate-300">
-                  BSc in Computer Science and Engineering
-                </p>
+            {isLoadingEducation ? (
+              <div className="!my-10">
+                <Skeleton
+                  active
+                  paragraph={{ rows: 10 }}
+                  className="bg-white/5 p-5 rounded"
+                />
               </div>
-              <p className="text-slate-400">2023 - Ongoing</p>
-            </div>
-
-            <div className="flex items-center justify-between gap-8 !my-10">
-              <div className="space-y-3">
-                <h2 className="my-subtitle">Kurigram Polytechnic Institute</h2>
-                <p className="text-slate-300">Diploma in Computer Science</p>
-              </div>
-              <p className="text-slate-400">2018 - 2022</p>
-            </div>
+            ) : (
+              educations?.data
+                ?.sort((a, b) => a?.position - b?.position)
+                ?.map((education, ind) => (
+                  <div className="flex items-center justify-between gap-8 !my-10">
+                    <div className="space-y-3">
+                      <h2 className="my-subtitle">
+                        {education?.instituteName}
+                      </h2>
+                      <p className="text-slate-300">{education?.department}</p>
+                    </div>
+                    <p className="text-slate-400">{education?.timePeriod}</p>
+                  </div>
+                ))
+            )}
           </div>
         </div>
       </div>
