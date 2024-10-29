@@ -1,0 +1,66 @@
+.my-portfolio strong {
+  font-weight: 600;
+}
+.my-portfolio h1 strong,
+.my-portfolio h1 {
+  @apply font-bold text-[18px] md:text-[26px];
+}
+.my-portfolio h2 strong,
+.my-portfolio h2 {
+  @apply font-bold text-[17px] md:text-[23px];
+}
+.my-portfolio h3 strong,
+.my-portfolio h3 {
+  @apply font-bold text-[16px] md:text-[22px];
+}
+.my-portfolio h4 strong,
+.my-portfolio h4 {
+  @apply font-bold text-[16px] md:text-[21px];
+}
+.my-portfolio h5 strong,
+.my-portfolio h5 {
+  @apply font-bold text-[16px] md:text-[20px];
+}
+.my-portfolio h6 strong,
+.my-portfolio h6 {
+  @apply font-bold text-[16px] md:text-[19px];
+}
+
+.my-portfolio p {
+  @apply text-slate-700 text-base md:text-lg;
+}
+
+.my-portfolio ul {
+  @apply list-disc space-y-[15px] md:space-y-[8px] pl-6 text-slate-700;
+}
+.my-portfolio ol {
+  @apply list-decimal space-y-[15px] md:space-y-[8px] pl-6 text-slate-700;
+}
+.my-portfolio ul li {
+  @apply marker:text-primary marker:text-xl;
+}
+.my-portfolio ol li {
+  @apply marker:text-primary marker:text-xl;
+}
+
+.my-portfolio img {
+  @apply m-3 rounded-md md:rounded-lg;
+}
+/* .my-portfolio a{
+      @apply link-hover link-primary
+  } */
+
+.my-portfolio ins,
+u {
+  background: linear-gradient(to right, #fc4a1a, #f7b733);
+  -webkit-background-clip: text;
+  /* For webkit-based browsers (Safari, Chrome) */
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.my-portfolio .marker {
+  background-color: #f7b733;
+  color: black;
+}

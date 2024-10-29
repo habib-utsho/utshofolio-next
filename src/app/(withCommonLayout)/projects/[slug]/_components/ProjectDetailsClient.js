@@ -1,7 +1,8 @@
 // components/ProjectDetailsClient.js
 "use client"; // This directive makes it a client component
 
-import { Tag, Typography, Button, Tooltip, Space } from "antd";
+import "@/styles/projectDetails.css";
+import { Typography, Button, Tooltip, Space, Image, Tag } from "antd";
 import {
   LinkOutlined,
   GithubOutlined,
@@ -9,8 +10,8 @@ import {
   TagsOutlined,
   TeamOutlined,
   ClockCircleOutlined,
+  TrophyOutlined,
 } from "@ant-design/icons";
-import Image from "next/image";
 
 const { Title, Paragraph } = Typography;
 
@@ -20,24 +21,36 @@ const ProjectDetailsClient = ({ project }) => {
     logo,
     banner,
     description,
+    isFeatured,
     category,
     technologies,
     githubUrl,
     demoUrl,
     status,
     role,
-  } = project.data;
+    tags,
+  } = project.data || {};
 
   return (
     <div className="container mx-auto p-8">
       {/* Banner Image */}
-      <div className="relative mb-6 h-64">
+      <div className="relative mb-6  overflow-hidden rounded-lg shadow-lg text-center bg-secondary">
         <Image
-          fill
           src={banner}
           alt={`${title} banner`}
-          className="object-cover rounded-lg shadow-lg"
+          preview // Enables automatic preview
+          className="object-cover !-mb-1 !h-[450px] md:!h-[550px] lg:!h-[600px] transition-transform duration-300 ease-in-out hover:scale-105"
+          loading="lazy"
+          style={{ borderRadius: "8px" }} // Use inline style for border radius
         />
+        <div className="absolute bottom-0 rounded-tr-lg left-0 p-4 bg-purple-500/20">
+          <div className="flex items-center gap-2">
+            <h2 className="my-title gradient-text">{title}</h2>
+            {isFeatured && (
+              <TrophyOutlined className="text-xl md:text-3xl !text-purple-500" />
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Project Info Section */}
@@ -64,7 +77,7 @@ const ProjectDetailsClient = ({ project }) => {
         </div>
       </div>
       <h2 className="text-white text-center w-5/6 md:h-4/6 lg:w-3/6 mx-auto mt-10">
-        The <span className="text-purple-500">{title}</span> project is a{" "}
+        The <strong className="text-purple-400">{title}</strong> project is a{" "}
         <strong className="text-purple-400">{category}</strong> initiative.{" "}
         {status === "Completed" ? (
           <span>
@@ -127,7 +140,7 @@ const ProjectDetailsClient = ({ project }) => {
           <h2 className="!text-gray-100 !mb-4 text-center !text-lg font-bold">
             Technologies Used
           </h2>
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap justify-center">
             {technologies?.map((tech, index) => (
               <div
                 key={index}
@@ -142,19 +155,22 @@ const ProjectDetailsClient = ({ project }) => {
 
       {/* Additional Information Section */}
       <div className="bg-gray-100 p-4 rounded-lg shadow-md mt-10">
-        <Title level={4} className="text-gray-800 mb-2">
+        <Title level={3} className="text-gray-800 mb-2">
           More About This Project
         </Title>
-        <div
-          className="text-gray-700 mb-6"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <div className="my-portfolio">
+          <div
+            className="text-gray-700 mb-6"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </div>
         <Space>
           <Button
             type="link"
             href={demoUrl}
             target="_blank"
             icon={<EyeOutlined />}
+            className="!text-primary"
           >
             View Project
           </Button>
@@ -164,6 +180,7 @@ const ProjectDetailsClient = ({ project }) => {
               href={githubUrl.frontend}
               target="_blank"
               icon={<GithubOutlined />}
+              className="!text-primary"
             >
               View Frontend Code
             </Button>
@@ -174,12 +191,24 @@ const ProjectDetailsClient = ({ project }) => {
               href={githubUrl.backend}
               target="_blank"
               icon={<GithubOutlined />}
+              className="!text-primary"
             >
               View Backend Code
             </Button>
           )}
         </Space>
       </div>
+
+      {/* Tags */}
+      {tags?.length > 0 ? (
+        <div className="my-4">
+          {tags?.map((tag, ind) => (
+            <Tag key={ind}>{tag}</Tag>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

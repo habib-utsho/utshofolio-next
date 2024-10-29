@@ -47,10 +47,6 @@ const Experience = () => {
       dataIndex: "location",
     },
     {
-      title: "Location",
-      dataIndex: "location",
-    },
-    {
       title: "Is Course",
       dataIndex: "isCourse",
       render: (data) => <span>{data ? "Yes" : "No"}</span>,

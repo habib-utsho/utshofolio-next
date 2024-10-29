@@ -8,6 +8,7 @@ import {
   TeamOutlined,
   ClockCircleOutlined,
   ArrowRightOutlined,
+  TrophyOutlined,
 } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +20,7 @@ const ProjectCard = ({ project }) => {
     demoUrl,
     banner,
     logo,
+    isFeatured,
     category,
     status,
     role,
@@ -78,7 +80,14 @@ const ProjectCard = ({ project }) => {
               </figure>
 
               {/* Project Title */}
-              <h2 className="text-xl font-bold">{title}</h2>
+              <h2 className="text-xl font-bold flex gap-2 items-center">
+                {title}{" "}
+                {isFeatured ? (
+                  <TrophyOutlined className="!text-purple-500 text-lg md:text-xl" />
+                ) : (
+                  ""
+                )}
+              </h2>
             </div>
 
             {/* Project Info */}

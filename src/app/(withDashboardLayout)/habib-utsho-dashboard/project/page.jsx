@@ -46,10 +46,6 @@ const Project = () => {
       ),
     },
     {
-      title: "Description",
-      dataIndex: "description",
-    },
-    {
       title: "Category",
       dataIndex: "category",
     },

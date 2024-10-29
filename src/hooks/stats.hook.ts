@@ -1,21 +1,11 @@
-import { getAdminStats, getUserStats } from "@/services/stats.ts";
+import { getDashboardStats } from "@/services/stats";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGetAdminStats = () => {
-  // const router = useRouter();
+export const useGetDashboardStats = () => {
   return useQuery({
     queryKey: ["stats"],
     queryFn: async () => {
-      return await getAdminStats();
-    },
-  });
-};
-export const useGetUserStats = () => {
-  // const router = useRouter();
-  return useQuery({
-    queryKey: ["stats"],
-    queryFn: async () => {
-      return await getUserStats();
+      return await getDashboardStats();
     },
   });
 };

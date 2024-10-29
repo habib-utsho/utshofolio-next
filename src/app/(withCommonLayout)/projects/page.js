@@ -24,7 +24,14 @@ const ProjectsPage = () => {
       ? projects?.data
       : projects?.data?.filter((p) => p.category === activeTab);
 
-  const tabPanels = ["All", "Fullstack", "Frontend", "Backend"];
+  // const tabPanels = ["All", "Full Stack", "Frontend", "Backend"];
+  // const tabPanels = ["All", "Full Stack", "Frontend",];
+  let tabPanels;
+  if (projects?.data?.filter((p) => p.category === "Backend")?.length > 0) {
+    tabPanels = ["All", "Full Stack", "Frontend", "Backend"];
+  } else {
+    tabPanels = ["All", "Full Stack", "Frontend"];
+  }
 
   return (
     <div className="p-6 text-white min-h-screen">
@@ -61,11 +68,15 @@ const ProjectsPage = () => {
             {isLoadingProjects ? (
               <div className="my-8 space-y-8">
                 {Array.from({ length: 4 })?.map((_, ind) => (
-                  <Skeleton.Button
-                    key={ind}
-                    className="rounded-xl bg-gradient-to-r from-[#1a1a2e] to-secondary/20 !w-full !h-[300px]"
-                    active
-                  />
+                  <div className="bg-secondary !rounded">
+                    <Skeleton
+                      key={ind}
+                      // className="rounded-xl bg-gradient-to-r from-[#1a1a2e] to-secondary/20 !w-full !h-[300px]"
+                      paragraph={{ rows: 10 }}
+                      className="bg-white/5 !rounded p-5 py-8 !w-full !h-[200px] !shadow-lg !shadow-white/5"
+                      active
+                    />
+                  </div>
                 ))}
               </div>
             ) : filteredProjects?.length === 0 ? (

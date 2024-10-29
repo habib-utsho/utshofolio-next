@@ -44,10 +44,11 @@ const AboutPage = () => {
 
         {/* Technology */}
         {isLoadingTechnology ? (
-          <div className="my-10">
-            <Skeleton.Button
+          <div className="my-10 bg-secondary rounded">
+            <Skeleton
               active
-              className="bg-secondary  shadow-lg shadow-white/5 rounded space-y-8  !w-full !h-[416px]"
+              paragraph={{ rows: 10 }}
+              className="bg-white/5 !rounded p-5 py-8 !w-full !h-[200px] !shadow-lg !shadow-white/5"
             />
           </div>
         ) : technologies?.meta?.total === 0 ? (

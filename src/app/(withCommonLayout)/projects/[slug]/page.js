@@ -3,9 +3,7 @@ import { getSingleProject } from "@/services/project";
 import ProjectDetailsClient from "./_components/ProjectDetailsClient";
 
 const ProjectDetailsPage = async ({ params }) => {
-  console.log(params, "searchParams");
   const project = await getSingleProject(params.slug);
-  console.log(project, "project");
 
   if (!project || !project.success) {
     return <div>Error loading project details.</div>;

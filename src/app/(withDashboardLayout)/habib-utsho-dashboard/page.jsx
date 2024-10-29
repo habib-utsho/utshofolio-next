@@ -6,30 +6,29 @@ import {
   FolderOutlined,
   TagsOutlined,
   FileOutlined,
+  TrophyOutlined,
+  BookOutlined,
+  ReadOutlined,
 } from "@ant-design/icons";
+import { useGetDashboardStats } from "@/hooks/stats.hook";
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
 
 const PortfolioDashboard = () => {
-  const isPending = false; // Simulate loading state for skeleton
+  const { data: stats, isPending: isPending } = useGetDashboardStats();
 
   // Example of portfolio stats data
-  const statsData = {
-    totalProjects: 35,
-    totalBlogPosts: 15,
-    totalClients: 12,
-    totalSkills: 8,
-    totalCertificates: 5,
-  };
 
   const {
-    totalProjects,
-    totalBlogPosts,
-    totalClients,
-    totalSkills,
-    totalCertificates,
-  } = statsData;
+    totalProject,
+    totalFeaturedProject,
+    totalEducation,
+    totalExperience,
+    totalCourse,
+  } = stats?.data || {};
+
+  console.log(stats, "stats");
 
   return (
     <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
@@ -46,47 +45,49 @@ const PortfolioDashboard = () => {
             <Row gutter={[16, 16]}>
               <Col xs={24} sm={12} md={8} lg={6} xl={6}>
                 <Card
-                  title="Total Projects"
+                  title="Total Best Projects"
                   bordered={false}
-                  extra={<FolderOutlined />}
+                  extra={<TrophyOutlined />}
                 >
-                  <div className="text-2xl font-bold">{totalProjects}</div>
+                  <div className="text-2xl font-bold">
+                    {totalFeaturedProject}
+                  </div>
                 </Card>
               </Col>
               <Col xs={24} sm={12} md={8} lg={6} xl={6}>
                 <Card
-                  title="Total Blog Posts"
+                  title="Total Projects"
                   bordered={false}
                   extra={<FileOutlined />}
                 >
-                  <div className="text-2xl font-bold">{totalBlogPosts}</div>
+                  <div className="text-2xl font-bold">{totalProject}</div>
                 </Card>
               </Col>
               <Col xs={24} sm={12} md={8} lg={6} xl={6}>
                 <Card
-                  title="Total Clients"
+                  title="Total Education"
                   bordered={false}
-                  extra={<UserOutlined />}
+                  extra={<BookOutlined />}
                 >
-                  <div className="text-2xl font-bold">{totalClients}</div>
+                  <div className="text-2xl font-bold">{totalEducation}</div>
                 </Card>
               </Col>
               <Col xs={24} sm={12} md={8} lg={6} xl={6}>
                 <Card
-                  title="Total Skills"
+                  title="Total Experience"
                   bordered={false}
                   extra={<TagsOutlined />}
                 >
-                  <div className="text-2xl font-bold">{totalSkills}</div>
+                  <div className="text-2xl font-bold">{totalExperience}</div>
                 </Card>
               </Col>
               <Col xs={24} sm={12} md={8} lg={6} xl={6}>
                 <Card
-                  title="Total Certificates"
+                  title="Total Course"
                   bordered={false}
-                  extra={<AppstoreOutlined />}
+                  extra={<ReadOutlined />}
                 >
-                  <div className="text-2xl font-bold">{totalCertificates}</div>
+                  <div className="text-2xl font-bold">{totalCourse}</div>
                 </Card>
               </Col>
             </Row>
