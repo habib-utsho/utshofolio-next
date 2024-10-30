@@ -103,16 +103,16 @@ const ProjectCard = ({ project }) => {
             </p>
 
             {/* Technologies Section */}
-            <div className="flex gap-3 items-center flex-wrap">
+            <div className="space-y-[6px]">
               <h3 className="text-[12px] sm:text-sm md:text-md lg:text-lg font-semibold text-purple-400">
                 Technologies Used
               </h3>
-              <div className="my-2 flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap">
                 <div className="flex gap-4 flex-wrap">
                   {technologies?.map((tech, index) => (
                     <div
                       key={index}
-                      className="shadow shadow-white/20 text-white rounded-lg py-1 px-2 min-w-[140px] text-center"
+                      className="shadow shadow-white/10 text-white rounded-lg py-1 px-2 min-w-[140px] text-center"
                     >
                       <span className="font-semibold">{tech}</span>
                     </div>
