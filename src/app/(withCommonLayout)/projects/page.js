@@ -1,12 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { useGetAllProjects } from "@/hooks/project.hook"; // Custom hook for fetching projects
-import Image from "next/image";
-import Link from "next/link";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"; // Import react-tabs components
 import "react-tabs/style/react-tabs.css"; // Basic styles for react-tabs
 import { Empty, Skeleton, Tag } from "antd";
 import ProjectCard from "./_components/ProjectCard";
+import MyMotion from "@/ui/MyMotion";
 
 const ProjectsPage = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -88,9 +87,13 @@ const ProjectsPage = () => {
                 />
               </div>
             ) : (
-              filteredProjects?.map((project, ind) => {
-                return <ProjectCard key={ind} project={project} />;
-              })
+              filteredProjects
+                ?.sort((a, b) => a?.position - b?.position)
+                ?.map((project, ind) => (
+                  <MyMotion y={50} key={ind}>
+                    <ProjectCard project={project} />
+                  </MyMotion>
+                ))
             )}
           </TabPanel>
         ))}

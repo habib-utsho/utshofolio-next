@@ -8,14 +8,13 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { useGetAllProjects } from "@/hooks/project.hook";
 import { ArrowRightOutlined, TrophyOutlined } from "@ant-design/icons";
 import MyMotion from "@/ui/MyMotion";
+import { Tooltip } from "antd";
 
 const Hoempage = () => {
   const { data: projects, isPending: isLoadingProjects } = useGetAllProjects([
     { name: "limit", value: 5000000 },
     { name: "isFeatured", value: true },
   ]);
-
-  console.log(projects, "projects");
 
   return (
     <div className="min-h-screen py-8 md:py-2 pb-16 md:pb-2 px-6 md:px-2 flex flex-col items-center justify-center">
@@ -30,18 +29,29 @@ const Hoempage = () => {
               {[...projects?.data?.slice(0, 3)]
                 ?.sort((a, b) => a?.position - b?.position)
                 ?.map((project, ind) => (
-                  <Link
+                  <Tooltip
                     key={ind}
-                    href={`/projects/${project?._id}`}
-                    className="w-12 h-12 relative overflow-hidden rounded-full shadow-sm border !border-purple-500 hover:scale-[1.1] transition-all duration-500"
+                    title={
+                      <span>
+                        Click to view details of{" "}
+                        <strong className="text-purple-500">
+                          {project?.title}
+                        </strong>
+                      </span>
+                    }
                   >
-                    <Image
-                      fill
-                      src={project?.logo}
-                      alt={`${project?.title}`}
-                      className="object-cover"
-                    />
-                  </Link>
+                    <Link
+                      href={`/projects/${project?._id}`}
+                      className="w-12 h-12 relative overflow-hidden rounded-full shadow-sm hover:scale-[1.1] transition-all duration-500"
+                    >
+                      <Image
+                        fill
+                        src={project?.logo}
+                        alt={`${project?.title}`}
+                        className="object-cover"
+                      />
+                    </Link>
+                  </Tooltip>
                 ))}
               <Link
                 href={`/projects`}
@@ -52,6 +62,7 @@ const Hoempage = () => {
             </div>
           </MyMotion>
         )}
+   
 
         {/* Custom cursor is not working */}
         <figure className="h-[300px] w-[300px] mx-auto relative utshoProPic group overflow-hidden border-2 border-indigo-500 rounded-xl transition">

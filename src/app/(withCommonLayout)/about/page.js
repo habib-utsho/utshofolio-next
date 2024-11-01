@@ -2,6 +2,7 @@
 import { useGetAllEducation } from "@/hooks/education.hook";
 import { useGetAllExperiences } from "@/hooks/experience.hook";
 import { useGetAllTechnologies } from "@/hooks/technology.hook";
+import MyMotion from "@/ui/MyMotion";
 import { Empty, Skeleton } from "antd";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
@@ -58,66 +59,69 @@ const AboutPage = () => {
             }
           />
         ) : (
-          <div className="bg-secondary  shadow-lg shadow-white/5 rounded p-6 space-y-8 my-10">
-            <div className="space-y-3">
-              <h2 className="my-subtitle relative pl-3">
-                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-                Frontend
-              </h2>
-              <div className="flex flex-wrap gap-4">
-                {technologies?.data
-                  ?.filter((tech) => tech?.category === "Frontend")
-                  ?.sort((a, b) => a?.position - b?.position)
-                  ?.map((tech, ind) => (
-                    <span key={ind}>{tech?.name}</span>
-                  ))}
+          <MyMotion y={50}>
+            {" "}
+            <div className="bg-secondary  shadow-lg shadow-white/5 rounded p-6 space-y-8 my-10">
+              <div className="space-y-3">
+                <h2 className="my-subtitle relative pl-3">
+                  <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                  Frontend
+                </h2>
+                <div className="flex flex-wrap gap-4">
+                  {technologies?.data
+                    ?.filter((tech) => tech?.category === "Frontend")
+                    ?.sort((a, b) => a?.position - b?.position)
+                    ?.map((tech, ind) => (
+                      <span key={ind}>{tech?.name}</span>
+                    ))}
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-3">
-              <h2 className="my-subtitle relative pl-3">
-                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-                Backend
-              </h2>
-              <div className="flex flex-wrap gap-4">
-                {technologies?.data
-                  ?.filter((tech) => tech?.category === "Backend")
-                  ?.sort((a, b) => a?.position - b?.position)
-                  ?.map((tech, ind) => (
-                    <span key={ind}>{tech?.name}</span>
-                  ))}
+              <div className="space-y-3">
+                <h2 className="my-subtitle relative pl-3">
+                  <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                  Backend
+                </h2>
+                <div className="flex flex-wrap gap-4">
+                  {technologies?.data
+                    ?.filter((tech) => tech?.category === "Backend")
+                    ?.sort((a, b) => a?.position - b?.position)
+                    ?.map((tech, ind) => (
+                      <span key={ind}>{tech?.name}</span>
+                    ))}
+                </div>
               </div>
-            </div>
-            <div className="space-y-3">
-              <h2 className="my-subtitle relative pl-3">
-                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-                Full Stack
-              </h2>
-              <div className="flex flex-wrap gap-4">
-                {technologies?.data
-                  ?.filter((tech) => tech?.category === "Full Stack")
-                  ?.sort((a, b) => a?.position - b?.position)
-                  ?.map((tech, ind) => (
-                    <span key={ind}>{tech?.name}</span>
-                  ))}
+              <div className="space-y-3">
+                <h2 className="my-subtitle relative pl-3">
+                  <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                  Full Stack
+                </h2>
+                <div className="flex flex-wrap gap-4">
+                  {technologies?.data
+                    ?.filter((tech) => tech?.category === "Full Stack")
+                    ?.sort((a, b) => a?.position - b?.position)
+                    ?.map((tech, ind) => (
+                      <span key={ind}>{tech?.name}</span>
+                    ))}
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-3">
-              <h2 className="my-subtitle relative pl-3">
-                <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
-                Tools
-              </h2>
-              <div className="flex flex-wrap gap-4">
-                {technologies?.data
-                  ?.filter((tech) => tech?.category === "Tools")
-                  ?.sort((a, b) => a?.position - b?.position)
-                  ?.map((tech, ind) => (
-                    <span key={ind}>{tech?.name}</span>
-                  ))}
+              <div className="space-y-3">
+                <h2 className="my-subtitle relative pl-3">
+                  <div className="absolute left-0 top-0 h-full w-1 bg-[#E84545]"></div>
+                  Tools
+                </h2>
+                <div className="flex flex-wrap gap-4">
+                  {technologies?.data
+                    ?.filter((tech) => tech?.category === "Tools")
+                    ?.sort((a, b) => a?.position - b?.position)
+                    ?.map((tech, ind) => (
+                      <span key={ind}>{tech?.name}</span>
+                    ))}
+                </div>
               </div>
             </div>
-          </div>
+          </MyMotion>
         )}
 
         {/* About me */}
@@ -170,108 +174,112 @@ const AboutPage = () => {
           </div>
         </div>
 
-        {/* Courses and education */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14 mb-10 p-6 bg-[#081229] shadow-md text-white">
-          {/* Course and experience */}
-          <div>
-            <h2 className="my-title relative pb-3">
-              Experiences
-              <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
-            </h2>
-            {isLoadingExperience ? (
-              <div className="!my-10">
-                <Skeleton
-                  active
-                  paragraph={{ rows: 10 }}
-                  className="bg-white/5 p-5 rounded"
-                />
-              </div>
-            ) : (
-              experiences?.data
-                ?.filter((exp) => !exp?.isCourse)
-                ?.sort((a, b) => a?.position - b?.position)
-                ?.map((exp, ind) => {
-                  return (
-                    <div
-                      key={ind}
-                      className="flex items-center justify-between gap-8 !my-10"
-                    >
-                      <div className="space-y-3">
-                        <h2 className="my-subtitle">{exp?.companyName}</h2>
-                        <p className="text-slate-300">{exp?.role}</p>
+        {/* Exp, Courses and education */}
+        <MyMotion y={-50}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14 mb-10 p-6 bg-[#081229] text-white rounded shadow-lg shadow-white/5">
+            {/* Course and experience */}
+            <div>
+              <h2 className="my-title relative pb-3">
+                Experiences
+                <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
+              </h2>
+              {isLoadingExperience ? (
+                <div className="!my-10">
+                  <Skeleton
+                    active
+                    paragraph={{ rows: 10 }}
+                    className="bg-white/5 p-5 rounded"
+                  />
+                </div>
+              ) : (
+                experiences?.data
+                  ?.filter((exp) => !exp?.isCourse)
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((exp, ind) => {
+                    return (
+                      <div
+                        key={ind}
+                        className="flex items-center justify-between gap-8 !my-10"
+                      >
+                        <div className="space-y-3">
+                          <h2 className="my-subtitle">{exp?.companyName}</h2>
+                          <p className="text-slate-300">{exp?.role}</p>
+                        </div>
+                        <p className="text-slate-400">{exp?.timePeriod}</p>
                       </div>
-                      <p className="text-slate-400">{exp?.timePeriod}</p>
-                    </div>
-                  );
-                })
-            )}
-          </div>
-          <div>
-            <h2 className="my-title relative pb-3">
-              Courses
-              <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
-            </h2>
-            {isLoadingExperience ? (
-              <div className="!my-10">
-                <Skeleton
-                  active
-                  paragraph={{ rows: 10 }}
-                  className="bg-white/5 p-5 rounded"
-                />
-              </div>
-            ) : (
-              experiences?.data
-                ?.filter((exp) => exp?.isCourse)
-                ?.sort((a, b) => a?.position - b?.position)
-                ?.map((exp, ind) => {
-                  return (
-                    <div
-                      key={ind}
-                      className="flex items-center justify-between gap-8 !my-10"
-                    >
-                      <div className="space-y-3">
-                        <h2 className="my-subtitle">{exp?.role}</h2>
-                        <p className="text-slate-300">{exp?.companyName}</p>
+                    );
+                  })
+              )}
+            </div>
+            <div>
+              <h2 className="my-title relative pb-3">
+                Courses
+                <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
+              </h2>
+              {isLoadingExperience ? (
+                <div className="!my-10">
+                  <Skeleton
+                    active
+                    paragraph={{ rows: 10 }}
+                    className="bg-white/5 p-5 rounded"
+                  />
+                </div>
+              ) : (
+                experiences?.data
+                  ?.filter((exp) => exp?.isCourse)
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((exp, ind) => {
+                    return (
+                      <div
+                        key={ind}
+                        className="flex items-center justify-between gap-8 !my-10"
+                      >
+                        <div className="space-y-3">
+                          <h2 className="my-subtitle">{exp?.role}</h2>
+                          <p className="text-slate-300">{exp?.companyName}</p>
+                        </div>
+                        <p className="text-slate-400">{exp?.timePeriod}</p>
                       </div>
-                      <p className="text-slate-400">{exp?.timePeriod}</p>
-                    </div>
-                  );
-                })
-            )}
-          </div>
+                    );
+                  })
+              )}
+            </div>
 
-          {/* Education */}
-          <div>
-            <h2 className="my-title relative pb-3">
-              Education
-              <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
-            </h2>
+            {/* Education */}
+            <div>
+              <h2 className="my-title relative pb-3">
+                Education
+                <span className="block absolute top-full left-0 h-1 w-full bg-[#E84545]"></span>
+              </h2>
 
-            {isLoadingEducation ? (
-              <div className="!my-10">
-                <Skeleton
-                  active
-                  paragraph={{ rows: 10 }}
-                  className="bg-white/5 p-5 rounded"
-                />
-              </div>
-            ) : (
-              educations?.data
-                ?.sort((a, b) => a?.position - b?.position)
-                ?.map((education, ind) => (
-                  <div className="flex items-center justify-between gap-8 !my-10">
-                    <div className="space-y-3">
-                      <h2 className="my-subtitle">
-                        {education?.instituteName}
-                      </h2>
-                      <p className="text-slate-300">{education?.department}</p>
+              {isLoadingEducation ? (
+                <div className="!my-10">
+                  <Skeleton
+                    active
+                    paragraph={{ rows: 10 }}
+                    className="bg-white/5 p-5 rounded"
+                  />
+                </div>
+              ) : (
+                educations?.data
+                  ?.sort((a, b) => a?.position - b?.position)
+                  ?.map((education, ind) => (
+                    <div className="flex items-center justify-between gap-8 !my-10">
+                      <div className="space-y-3">
+                        <h2 className="my-subtitle">
+                          {education?.instituteName}
+                        </h2>
+                        <p className="text-slate-300">
+                          {education?.department}
+                        </p>
+                      </div>
+                      <p className="text-slate-400">{education?.timePeriod}</p>
                     </div>
-                    <p className="text-slate-400">{education?.timePeriod}</p>
-                  </div>
-                ))
-            )}
+                  ))
+              )}
+            </div>
           </div>
-        </div>
+        </MyMotion>
       </div>
     </div>
   );
