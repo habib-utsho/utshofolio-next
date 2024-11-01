@@ -5,7 +5,12 @@ import { DeleteFilled, EditOutlined } from "@ant-design/icons";
 import { useDeleteProject, useGetAllProjects } from "@/hooks/project.hook";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import ProjectModal from "./_modal/ProjectModal";
+import dynamic from "next/dynamic";
+// import ProjectModal from "./_modal/ProjectModal";
+
+const ProjectModal = dynamic(() => import("./_modal/ProjectModal"), {
+  ssr: false,
+});
 
 const Project = () => {
   const [pagination, setPagination] = useState({ limit: 10, page: 1 });

@@ -1,3 +1,4 @@
+"use client";
 import { Modal, Form, Button, message, Upload, Switch, Tag, Input } from "antd";
 import { useCreateProject, useUpdateProject } from "@/hooks/project.hook"; // Adjust import based on your file structure
 import MyInp from "@/ui/Form/MyInp";
