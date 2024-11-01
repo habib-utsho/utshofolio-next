@@ -149,7 +149,7 @@ const Hoempage = () => {
                 <CountUp start={0} end={10} duration={2} />+
               </h2>
               <p className="font-semibold text-slate-100">
-                open source projects!
+                Technologies
               </p>
             </div>
           </div>
