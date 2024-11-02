@@ -309,6 +309,7 @@ const AboutPage = () => {
         onCancel={() => setSelectedExperience(null)}
         footer={null}
       >
+        
         <div className="my-exp">
           <div
             className="text-gray-700 mb-6"
