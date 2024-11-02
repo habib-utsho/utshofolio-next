@@ -209,7 +209,7 @@ const AboutPage = () => {
                         className="flex items-center justify-between gap-8 !my-10"
                       >
                         <div className="space-y-3">
-                          <h2 className="my-subtitle">
+                          <h2 className="my-subtitle flex items-center gap-[1px]">
                             {exp?.companyName}{" "}
                             {exp?.description ? (
                               <Button
@@ -309,7 +309,6 @@ const AboutPage = () => {
         onCancel={() => setSelectedExperience(null)}
         footer={null}
       >
-        
         <div className="my-exp">
           <div
             className="text-gray-700 mb-6"
