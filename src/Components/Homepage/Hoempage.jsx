@@ -17,14 +17,14 @@ const Hoempage = () => {
   ]);
 
   return (
-    <div className="min-h-screen py-8 md:py-2 pb-16 md:pb-2 px-6 md:px-2 flex flex-col items-center justify-center">
+    <div className="min-h-screen py-8 md:py-2 pb-16 md:pb-2 px-2 sm:px-6 md:px-2 flex flex-col items-center justify-center">
       <div className="text-white text-center space-y-5 relative">
         {/* Best projects */}
         {projects?.meta?.total > 0 && (
           <MyMotion x={-50}>
             <div
-              style={{ position: "absolute", left: "6px", top: "45px" }}
-              className=" flex flex-col gap-3"
+              // style={{ position: "absolute", left: "6px", top: "45px" }}
+              className="absolute z-[50000000] left-[2px] sm:left-[6px] top-[45px] flex flex-col gap-3"
             >
               {[...projects?.data?.slice(0, 3)]
                 ?.sort((a, b) => a?.position - b?.position)
@@ -62,7 +62,6 @@ const Hoempage = () => {
             </div>
           </MyMotion>
         )}
-   
 
         {/* Custom cursor is not working */}
         <figure className="h-[300px] w-[300px] mx-auto relative utshoProPic group overflow-hidden border-2 border-indigo-500 rounded-xl transition">
@@ -148,9 +147,7 @@ const Hoempage = () => {
               <h2 className="my-title">
                 <CountUp start={0} end={10} duration={2} />+
               </h2>
-              <p className="font-semibold text-slate-100">
-                Technologies
-              </p>
+              <p className="font-semibold text-slate-100">Technologies</p>
             </div>
           </div>
         </div>

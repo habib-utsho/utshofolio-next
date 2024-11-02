@@ -11,15 +11,15 @@ export function Providers({ children }) {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#00ABE4",
+          colorPrimary: "#9f7aea",
         },
         components: {
           Button: {
-            colorPrimary: "#00ABE4",
+            colorPrimary: "#9f7aea",
             fontWeight: "bold",
           },
           Checkbox: {
-            colorPrimary: "#00ABE4",
+            colorPrimary: "#9f7aea",
           },
         },
       }}

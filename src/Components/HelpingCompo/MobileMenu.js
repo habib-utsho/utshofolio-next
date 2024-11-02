@@ -2,10 +2,10 @@
 
 import NavLink from "@/Components/HelpingCompo/NavLink";
 import React from "react";
-import { FaHome, FaServicestack, FaUser } from "react-icons/fa";
-import { BsTrophyFill } from "react-icons/bs";
+import { FaHome, FaUser } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { ImBlog } from "react-icons/im";
+import { AppstoreFilled, TrophyFilled } from "@ant-design/icons";
 
 const MobileMenu = () => {
   return (
@@ -23,12 +23,12 @@ const MobileMenu = () => {
         </li>
         <li className="flex-1">
           <NavLink href={"/services"}>
-            <FaServicestack></FaServicestack>
+            <AppstoreFilled />
           </NavLink>
         </li>
         <li className="flex-1">
           <NavLink href={"/projects"}>
-            <BsTrophyFill></BsTrophyFill>
+            <TrophyFilled />
           </NavLink>
         </li>
         <li className="flex-1">

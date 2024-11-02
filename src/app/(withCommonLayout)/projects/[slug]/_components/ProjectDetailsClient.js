@@ -13,7 +13,7 @@ import {
   TrophyOutlined,
 } from "@ant-design/icons";
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const ProjectDetailsClient = ({ project }) => {
   const {
@@ -55,12 +55,12 @@ const ProjectDetailsClient = ({ project }) => {
 
       {/* Project Info Section */}
       <div className="flex items-center !mt-10">
-        <div className="relative w-20 h-20 mr-4">
+        <div className="relative w-20 h-auto mr-4">
           <Image
             fill
             src={logo}
             alt={`${title} logo`}
-            className="rounded-full object-cover shadow-md"
+            className="object-cover"
           />
         </div>
         <div className="text-gray-100 space-y-1">
@@ -95,7 +95,7 @@ const ProjectDetailsClient = ({ project }) => {
       </h2>
 
       {/* Action Buttons Section */}
-      <div className="flex gap-4 mt-10">
+      <div className="flex gap-4 mt-10 flex-wrap">
         {demoUrl && (
           <Tooltip title="Live Demo" placement="top">
             <Button
@@ -164,7 +164,7 @@ const ProjectDetailsClient = ({ project }) => {
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </div>
-        <Space>
+        <div className="flex items-center gap-2 flex-wrap">
           <Button
             type="link"
             href={demoUrl}
@@ -196,7 +196,7 @@ const ProjectDetailsClient = ({ project }) => {
               View Backend Code
             </Button>
           )}
-        </Space>
+        </div>
       </div>
 
       {/* Tags */}
