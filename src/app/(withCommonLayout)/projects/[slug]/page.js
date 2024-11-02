@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   const slugs = await getAllProjects(); // Fetch all slugs from your API or data source
   return slugs?.data?.map((slug) => {
     return {
-      slug: slug._id,
+      slug: slug?._id,
     };
   });
 }

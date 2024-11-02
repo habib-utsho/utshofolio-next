@@ -12,8 +12,8 @@ const layout = ({ children }) => {
       </div>
 
       {/* sidebar menu for desktop */}
-      <DesktopSidebar></DesktopSidebar>
-      <MobileMenu></MobileMenu>
+      <DesktopSidebar />
+      <MobileMenu />
     </div>
   );
 };
