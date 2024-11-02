@@ -7,7 +7,10 @@ import {
   useGetAllExperiences,
 } from "@/hooks/experience.hook";
 import { useState, useEffect } from "react";
-import ExperienceModal from "./_modal/ExperienceModal";
+
+import dynamic from "next/dynamic";
+
+const ExperienceModal = dynamic("./_modal/ExperienceModal", { ssr: false });
 
 const Experience = () => {
   const [pagination, setPagination] = useState({ limit: 10, page: 1 });
