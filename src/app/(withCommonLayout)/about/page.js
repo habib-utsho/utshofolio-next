@@ -3,9 +3,11 @@ import { useGetAllEducation } from "@/hooks/education.hook";
 import { useGetAllExperiences } from "@/hooks/experience.hook";
 import { useGetAllTechnologies } from "@/hooks/technology.hook";
 import MyMotion from "@/ui/MyMotion";
-import { Empty, Skeleton } from "antd";
-import React from "react";
+import { EyeOutlined } from "@ant-design/icons";
+import { Button, Empty, Modal, Skeleton } from "antd";
+import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
+import "@/styles/expDetails.css";
 
 const AboutPage = () => {
   const { data: technologies, isPending: isLoadingTechnology } =
@@ -14,6 +16,11 @@ const AboutPage = () => {
     useGetAllExperiences([{ name: "limit", value: 50000 }]);
   const { data: educations, isPending: isLoadingEducation } =
     useGetAllEducation([{ name: "limit", value: 50000 }]);
+
+  const [selectedExperience, setSelectedExperience] = useState(null);
+
+  console.log(experiences, "experiences");
+  console.log(selectedExperience, "selectedExperience");
 
   return (
     <div className="text-white">
@@ -202,7 +209,19 @@ const AboutPage = () => {
                         className="flex items-center justify-between gap-8 !my-10"
                       >
                         <div className="space-y-3">
-                          <h2 className="my-subtitle">{exp?.companyName}</h2>
+                          <h2 className="my-subtitle">
+                            {exp?.companyName}{" "}
+                            {exp?.description ? (
+                              <Button
+                                type="link"
+                                className="!text-primary "
+                                icon={<EyeOutlined />}
+                                onClick={() => setSelectedExperience(exp)}
+                              />
+                            ) : (
+                              ""
+                            )}{" "}
+                          </h2>
                           <p className="text-slate-300">{exp?.role}</p>
                         </div>
                         <p className="text-slate-400">{exp?.timePeriod}</p>
@@ -211,6 +230,7 @@ const AboutPage = () => {
                   })
               )}
             </div>
+
             <div>
               <h2 className="my-title relative pb-3">
                 Courses
@@ -281,6 +301,23 @@ const AboutPage = () => {
           </div>
         </MyMotion>
       </div>
+
+      {/* Modal for experience description */}
+      <Modal
+        title={selectedExperience?.companyName}
+        open={selectedExperience}
+        onCancel={() => setSelectedExperience(null)}
+        footer={null}
+      >
+        <div className="my-exp">
+          <div
+            className="text-gray-700 mb-6"
+            dangerouslySetInnerHTML={{
+              __html: selectedExperience?.description,
+            }}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };

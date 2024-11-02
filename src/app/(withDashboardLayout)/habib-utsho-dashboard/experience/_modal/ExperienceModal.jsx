@@ -1,11 +1,22 @@
 import { Modal, Form, Button, message, Upload, Switch, Tag, Input } from "antd";
 import MyInp from "@/ui/Form/MyInp";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import {
   useCreateExperience,
   useUpdateExperience,
 } from "@/hooks/experience.hook";
+import ReactQuill from "react-quill";
+
+const toolbarOptions = [
+  [{ header: [1, 2, false] }],
+  ["bold", "italic", "underline"],
+  ["blockquote", "code-block"],
+  [{ list: "ordered" }, { list: "bullet" }],
+  [{ color: [] }, { background: [] }], // Dropdown for color
+  ["link", "image"],
+  ["clean"], // Remove formatting button
+];
 
 const ExperienceModal = ({
   visible,
@@ -18,17 +29,22 @@ const ExperienceModal = ({
     useCreateExperience();
   const { mutate: updateExperience, isPending: isLoadingUpdateExperience } =
     useUpdateExperience();
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     if (editingExperience) {
       form.setFieldsValue({
         ...editingExperience,
       });
+
+      setDescription(editingExperience?.description);
     }
   }, [editingExperience, form]);
 
   const handleCreateUpdateExperience = async (values) => {
     try {
+      values.description = description;
+
       const action = editingExperience ? updateExperience : createExperience;
       const onSuccessMessage = editingExperience
         ? "Experience updated successfully"
@@ -45,6 +61,7 @@ const ExperienceModal = ({
           if (editingExperience) {
             setEditingExperience(null);
           }
+          setDescription("");
         },
       });
     } catch (error) {
@@ -91,6 +108,20 @@ const ExperienceModal = ({
           label="Location"
           placeholder="Enter location"
         />
+
+        {/* Quill editor */}
+        <div className="my-2">
+          <ReactQuill
+            theme="snow"
+            value={description}
+            onChange={setDescription}
+            placeholder="Enter your experience description"
+            modules={{
+              toolbar: toolbarOptions,
+            }}
+          />
+        </div>
+
         <MyInp
           type="text"
           name="timePeriod"
