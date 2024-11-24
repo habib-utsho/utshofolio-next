@@ -4,7 +4,7 @@ import ProjectDetailsClient from "./_components/ProjectDetailsClient";
 
 // Function to generate static params (slugs)
 export async function generateStaticParams() {
-  const slugs = await getAllProjects(); // Fetch all slugs from your API or data source
+  const slugs = await getAllProjects([{ name: "limit", value: 5000000 }]); // Fetch all slugs from your API or data source
   return slugs?.data?.map((slug) => {
     return {
       slug: slug?._id,
